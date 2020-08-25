@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compativle" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./images/favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alata&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <title>Simulador de Blockchain</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul class="navigation-hyperlinks">
+        <li class="navbar-item">
+          <img
+            class="img-blockchain"
+            src="./images/blockchain.png"
+            alt="Blockchain illustration."
+          />
+        </li>
+        <li class="navbar-item">
+          <a href="javascript:void(0)" class="navbar-hyperlink"
+            ><h1 id="page-title">Simulador de Blockchain</h1></a
+          >
+        </li>
+        <div id="dropdown-menu">
+          <li class="navbar-item">
+            <h1 id="dropdown">Lecciones</h1>
+            <ul class="dropdown-list">
+              <li class="dropdown-item">
+                <a href="./conceptos/hash.html" class="dropdown-hyperlink"
+                  >1. Hashes y encriptación</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./conceptos/block.html" class="dropdown-hyperlink"
+                  >2. Bloques, nonces y minar</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./conceptos/blockchain.html" class="dropdown-hyperlink"
+                  >3. Cadena de bloques</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a
+                  href="./conceptos/distributed.html"
+                  class="dropdown-hyperlink"
+                  >4. Registro distribuido</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./conceptos/tokens.html" class="dropdown-hyperlink"
+                  >5. Tokens</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="navbar-item">
+            <img
+              class="img-dropdown-arrow"
+              src="./images/dropdown-menu-arrowpng.png"
+              alt="Dropdown arrow."
+            />
+          </li>
+        </div>
+      </ul>
+    </nav>
+    <div class="wrapper">
+      <h1 class="text-title">Blockchain</h1>
+      <div class="separator"></div>
+      <p class="text">
+        Blockchain es una tecnología que presenta un libro mayor
+        descentralizado, distribuido, seguro y compartido. En su sentido más
+        básico, Blockchain es literalmente una cadena de bloques. Estos bloques
+        contienen información pertinente al uso que se le está dando al
+        Blockchain en cuestión.
+      </p>
+      <div class="separator"></div>
+      <p class="text">
+        Los bloques consisten en distintos componentes de información. Entre
+        ellos, se encuentran:
+      </p>
+      <div class="medium-separator"></div>
+      <div class="items-list">
+        <ul>
+          <li>
+            <p class="text">
+              Información relacionada con las transacciones realizadas, como la
+              hora, fecha y la cantidad transaccionada (en caso de las
+              criptomonedas).
+            </p>
+          </li>
+          <div class="separator"></div>
+          <li>
+            <p class="text">
+              Participantes en las transacciones. Sin embargo, los bloques no
+              registran los nombres de las personas o entidades involucradas
+              directamente en una transacción, sino que emplean
+              <em
+                title="Técnica matemática empleada para validar la integridad y autenticidad de un mensaje o documento digital."
+                >firmas digitales</em
+              >, por propósitos de seguridad.
+            </p>
+          </li>
+          <div class="separator"></div>
+          <li>
+            <p class="text">
+              Adicionalmente, cada bloque posee información que lo distingue de
+              cualquier otro bloque presente en la cadena. De manera similar a
+              como cada persona tiene huellas dactilares únicas, cada bloque
+              almacena un código conocido como <em>hash</em>, el cual le permite
+              distinguirlo del resto de bloques en la cadena. Los
+              <em>hashes</em> son códigos criptográficos creados a partir de
+              algoritmos especializados.
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class="big-separator"></div>
+      <h1 class="text-title">Usos de Blockchain</h1>
+      <div class="separator"></div>
+      <p class="text">
+        El propósito de Blockchain es permitir que la información digital sea
+        registrada y distribuida, pero no editada. Debido a que esta tecnología
+        es bastante versátil, es posible emplearla en distintas áreas. Entre las
+        áreas de aplicación de Blockchain se encuentra:
+      </p>
+      <div class="medium-separator"></div>
+      <div class="secondary-text">
+        <h2 class="subtitle">Criptomonedas</h2>
+        <div class="separator"></div>
+        <p class="text">
+          Si Blockchain es conocido por ser empleado en alguna área es en
+          criptomonedas, y es que Blockchain conforma la base de las
+          criptomonedas, como Bitcoin, Ethereum, Litecoin, entre otras. En la
+          actualidad, las monedas son reguladas por una unidad central, como el
+          gobierno o un banco. De esta manera, se corre un gran riesgo si el
+          banco de un usuario colapsa o vive en una nación con un gobierno
+          inestable, colocando el valor de su moneda en riesgo. Estas son
+          algunas de las inquietudes que impulsaron el desarrollo de las
+          criptomonedas.
+        </p>
+        <div class="separator"></div>
+        <p class="text">
+          Al expandir las operaciones transaccionales a lo largo de una red de
+          computadores, Blockchain le permite operar a las criptomonedas sin la
+          necesidad de una autoridad central. Esto no solo reduce los riesgos
+          antes mencionados, también elimina cuotas de transacción y
+          procesamiento de pagos.
+        </p>
+        <div class="separator"></div>
+        <p class="text">
+          A pesar de que se suele utilizar los términos "Bitcoin" y "Blockchain"
+          para referirse a lo mismo, tienen sus diferencias, las cuales serán
+          exploradas más adelante en la página web.
+        </p>
+        <div class="separator"></div>
+        <div class="separator"></div>
+        <h2 class="subtitle">Registros Médicos</h2>
+        <div class="separator"></div>
+        <p class="text">
+          Los proveedores de servicios médicos pueden emplear Blockchain para
+          almacenar los registros médicos de sus pacientes de una forma segura.
+          Cuando un registro médico es creado y firmado, éste puede ser
+          ingresado a un Blockchain, el cual puede servirles de constancia a los
+          pacientes de que sus registros no han sido cambiados.
+        </p>
+        <div class="separator"></div>
+        <div class="separator"></div>
+        <h2 class="subtitle">Smart Contracts</h2>
+        <div class="separator"></div>
+        <p class="text">
+          Los <em>Smart Contracts</em> o Contratos Inteligentes son un conjunto
+          de instrucciones almacenadas en un Blockchain con el propósito de
+          facilitar, verificar o negociar un acuerdo contractual. De esta
+          manera, estos contratos operan bajo un conjunto de condiciones
+          acordadas entre los usuarios; cuando estas condiciones se cumplen, los
+          términos del acuerdo son ejecutados automáticamente.
+        </p>
+      </div>
+      <div class="big-separator"></div>
+      <h1 class="text-title">¿Qué es esta página?</h1>
+      <div class="separator"></div>
+      <p class="text">
+        Este sitio web busca brindar un acercamiento sencillo hacia el
+        funcionamiento de Blockchain. Se presentan distintos conceptos, tales
+        como <em>hashes</em>, <em>encriptación</em> y <em>minar</em>, poco a
+        poco, para que el usuario pueda ir adquiriendo una noción sobre los
+        fundamentos que conforman a Blockchain y culminar en un conocimiento
+        general sobre el tema.
+      </p>
+      <div class="separator"></div>
+      <p class="text">
+        Para ello, se ha desarrollado una serie de páginas sucesivas a esta
+        donde se encontrará una explicación sobre un tema en particular
+        referente a Blockchain, así como un área de experimentación, para
+        complementar el entendimiento.
+      </p>
+      <div class="big-separator"></div>
+      <h1 class="text-title">¿Cómo empezar?</h1>
+      <div class="separator"></div>
+      <p class="text">
+        A continuación y al final de esta página se encuentra un vínculo hacia
+        la primera lección:
+        <a class="hyperlink" href="./conceptos/hash.html"
+          ><em>Hashes y encriptación</em></a
+        >, donde se presentará una introducción a los principios de
+        encriptación, así como un editor interactivo para convertir mensajes a
+        hashes, mediante el algoritmo SHA-256.
+      </p>
+      <div class="separator"></div>
+      <p class="text">
+        Alternativamente, puede emplear los vínculos presentes en la barra de
+        navegación de la página para ingresar a otra lección.
+      </p>
+      <div class="big-separator"></div>
+      <div class="ending-text">
+        <a id="ending-hyperlink" href="./conceptos/hash.html"
+          ><< Hashes y encriptación >></a
+        >
+      </div>
+    </div>
+    <footer id="footer">
+      <p class="footer-text">
+        Autores: Jeremy Cáceres, Jorge Guerrero y Gabriel Lemus.
+      </p>
+    </footer>
+  </body>
+</html>
