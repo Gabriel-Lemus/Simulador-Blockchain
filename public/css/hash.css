@@ -1,6 +1,6 @@
-#data-input {
+#data-input, #block-number, #nonce {
   width: 700px;
-  height: 250px;
+  height: 25px;
   padding: 10px;
   border-radius: 3px;
 }
@@ -13,12 +13,21 @@
   border-radius: 3px;
 }
 
-#hash-container {
+#hash-container-mined {
   width: 850px;
-  height: 425px;
+  height: 485px;
   text-align: center;
   padding: 50px;
-  background-color: rgb(196, 196, 196);
+  background-color: rgb(195, 255, 200);
+  border-radius: 5px;
+}
+
+#hash-container-not-mined {
+  width: 850px;
+  height: 485px;
+  text-align: center;
+  padding: 50px;
+  background-color: rgb(250, 220, 220);
   border-radius: 5px;
 }
 

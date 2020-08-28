@@ -189,3 +189,43 @@ body {
   background-color: #757575;
   border-radius: 5px;
 }
+
+.button {
+  background-color: #4c6faf;
+  font-size: 14px;
+  border: none;
+  color: white;
+  padding: 7px 25px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button-disabled {
+  background-color: #8f8f8f;
+  font-size: 14px;
+  border: none;
+  color: rgb(88, 88, 88);
+  padding: 7px 25px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
