@@ -5,8 +5,14 @@
     <meta http-equiv="X-UA-Compativle" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../images/favicon.ico" />
-    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alata&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap"
+      rel="stylesheet"
+    />
     <title>Bloques en Blockchain</title>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/hash.css" />
@@ -14,19 +20,54 @@
   <body>
     <nav class="navbar">
       <ul class="navigation-hyperlinks">
-        <li class="navbar-item"><img class="img-blockchain" src="../images/blockchain.png" alt="Blockchain illustration." /></li>
-        <li class="navbar-item"><a href="../index.html" class="navbar-hyperlink"><h1 id="page-title">Simulador de Blockchain</h1></a></li>
+        <li class="navbar-item">
+          <img
+            class="img-blockchain"
+            src="../images/blockchain.png"
+            alt="Blockchain illustration."
+          />
+        </li>
+        <li class="navbar-item">
+          <a href="../index.html" class="navbar-hyperlink"
+            ><h1 id="page-title">Simulador de Blockchain</h1></a
+          >
+        </li>
         <div id="dropdown-menu">
-          <li class="navbar-item"><h1 id="dropdown">Lecciones</h1>
+          <li class="navbar-item">
+            <h1 id="dropdown">Lecciones</h1>
             <ul class="dropdown-list">
-              <li class="dropdown-item"><a href="./hash.html" class="dropdown-hyperlink">1. Hashes y encriptación</a></li>
-              <li class="dropdown-item"><a href="javascript:void(0)" class="dropdown-hyperlink">2. Bloques, nonces y minar</a></li>
-              <li class="dropdown-item"><a href="./blockchain.html" class="dropdown-hyperlink">3. Cadena de bloques</a></li>
-              <li class="dropdown-item"><a href="./distributed.html" class="dropdown-hyperlink">4. Registro distribuido</a></li>
-              <li class="dropdown-item"><a href="./tokens.html" class="dropdown-hyperlink">5. Tokens</a></li>
+              <li class="dropdown-item">
+                <a href="./hash.html" class="dropdown-hyperlink"
+                  >1. Hashes y encriptación</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="javascript:void(0)" class="dropdown-hyperlink"
+                  >2. Bloques, nonces y minar</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./blockchain.html" class="dropdown-hyperlink"
+                  >3. Cadena de bloques</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./distributed.html" class="dropdown-hyperlink"
+                  >4. Registro distribuido</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./tokens.html" class="dropdown-hyperlink">5. Tokens</a>
+              </li>
             </ul>
           </li>
-          <li class="navbar-item"><img class="img-dropdown-arrow" src="../images/dropdown-menu-arrowpng.png" alt="Dropdown arrow." /></li>
+          <li class="navbar-item">
+            <img
+              class="img-dropdown-arrow"
+              src="../images/dropdown-menu-arrowpng.png"
+              alt="Dropdown arrow."
+            />
+          </li>
         </div>
       </ul>
     </nav>
@@ -35,49 +76,116 @@
       <div class="medium-separator"></div>
       <h2 class="subtitle">Bloques</h2>
       <div class="separator"></div>
-      <p class="text">Como se mencionó en la página inicial, Blockchain es una tecnología de libro mayor distribuido en la que se emplean archivos conocidos como <em>bloques</em> pertinentes a un Blockchain en particular, donde se almacena información.</p>
+      <p class="text">
+        Como se mencionó en la página inicial, Blockchain es una tecnología de
+        libro mayor distribuido en la que se emplean archivos conocidos como
+        <em>bloques</em> pertinentes a un Blockchain en particular, donde se
+        almacena información.
+      </p>
       <div class="separator"></div>
-      <p class="text">Un bloque mantiene el registro de una o más de las transacciones del Blockchain más recientes que no hayan sido registradas aún. De esta manera, se puede pensar del bloque como una página de un libro mayor o de registros. Cada vez que un bloque es "completado" o bien, "validado", es agregado al Blockchain, lo que le abre paso a otros bloques. Por lo tanto, un bloque es un registro permanente, que una vez que haya diso escrito, no puede ser alterado o removido. El proceso mediante el cual un bloque es validado se le conoce como minado.</p>
+      <p class="text">
+        Un bloque mantiene el registro de una o más de las transacciones del
+        Blockchain más recientes que no hayan sido registradas aún. De esta
+        manera, se puede pensar del bloque como una página de un libro mayor o
+        de registros. Cada vez que un bloque es "completado" o bien, "validado",
+        es agregado al Blockchain, lo que le abre paso a otros bloques. Por lo
+        tanto, un bloque es un registro permanente, que una vez que haya diso
+        escrito, no puede ser alterado o removido. El proceso mediante el cual
+        un bloque es validado se le conoce como minado.
+      </p>
       <div class="medium-separator"></div>
       <h2 class="subtitle">Minado de bloques</h2>
       <div class="separator"></div>
-      <p class="text">La labor que realizan los mineros dentro de un blockchain se puede pensar como una auditoría. En síntesis, ellos verifican las transacciones del Blockchain que han tomado lugar. De esta manera, se mantiene un nivel de honestidad entre los usuarios, y se previenen fraudes.</p>
+      <p class="text">
+        La labor que realizan los mineros dentro de un blockchain se puede
+        pensar como una auditoría. En síntesis, ellos verifican las
+        transacciones del Blockchain que han tomado lugar. De esta manera, se
+        mantiene un nivel de honestidad entre los usuarios, y se previenen
+        fraudes.
+      </p>
       <div class="separator"></div>
       <div class="separator"></div>
-      <p class="text">¿Pero que hacen en sí los mineros? En esencia, es buscar un número conocido como Nonce.</p>
+      <p class="text">
+        ¿Pero que hacen en sí los mineros? En esencia, es buscar un número
+        conocido como Nonce.
+      </p>
       <div class="separator"></div>
       <div class="separator"></div>
       <h2 class="subtitle">Nonce</h2>
       <div class="separator"></div>
-      <p class="text">Nonce es una abreviación en inglés (<em>number only used once</em> - número usado solo una vez). Es un número agregado a un bloque que ya ha pasado por la función hash, de manera que cumpla ciertas restricciones o reglas. Este número es el que buscan los mineros y por lo cual reciben una compensación. Una de las reglas más comunes es que el nonce del bloque es que el hash generado por el bloque empiece por una cantidad determinada de ceros.</p>
+      <p class="text">
+        Nonce es una abreviación en inglés (<em>number only used once</em> -
+        número usado solo una vez). Es un número agregado a un bloque que ya ha
+        pasado por la función hash, de manera que cumpla ciertas restricciones o
+        reglas. Este número es el que buscan los mineros y por lo cual reciben
+        una compensación. Una de las reglas más comunes es que el nonce del
+        bloque es que el hash generado por el bloque empiece por una cantidad
+        determinada de ceros.
+      </p>
       <div class="medium-separator"></div>
       <div class="medium-separator"></div>
-      <div style="align-content: center;">
-        <img src="../images/hash_sequence.gif" alt="Secuencia hash.">
-        <p class="text"><em>Ejemplo de búsqueda del nonce de un bloque. El minero empieza hasheando el bloque empleando a 1 como nonce, número que aumenta hasta que se encuentre un nonce que cumpla con la regla establecida.</em></p>
+      <div>
+        <img src="../images/hash_sequence.gif" alt="Secuencia hash." style="display: block; margin: 0 auto;" />
+        <p class="text" style="margin-top: 15px;">
+          <em
+            >Ejemplo de búsqueda del nonce de un bloque. El minero empieza
+            hasheando el bloque empleando a 1 como nonce, número que aumenta
+            hasta que se encuentre un nonce que cumpla con la regla
+            establecida.</em
+          >
+        </p>
       </div>
       <div class="medium-separator"></div>
       <div class="medium-separator"></div>
       <div class="medium-separator"></div>
       <h1 class="text-title">Minero de Bloques Interactivo</h1>
       <div class="separator"></div>
-      <p class="text"><b>Instrucciones: </b>A continuación, se le presenta un ejemplo de bloque de un Blockchain. Por propósitos de prueba, se dirá que pertenece al Blockchain de una criptomoneda por lo que los datos serán transacciones financieras. Usted podrá cambiar el número del bloque, así como determinar el contenido de los datos (no necesariamente debe ser una transacción, pero si lo deja en blanco, automáticamente se colocará una transacción aleatoria). Posteriormente, presione el botón "minar" para encontrar el nonce que hará que el hash del bloque concuerde con la regla definida.</p>
+      <p class="text">
+        <b>Instrucciones: </b>A continuación, se le presenta un ejemplo de
+        bloque de un Blockchain. Por propósitos de prueba, se dirá que pertenece
+        al Blockchain de una criptomoneda por lo que los datos serán
+        transacciones financieras. Usted podrá cambiar el número del bloque, así
+        como determinar el contenido de los datos (no necesariamente debe ser
+        una transacción, pero si lo deja en blanco, automáticamente se colocará
+        una transacción aleatoria). Posteriormente, presione el botón "minar"
+        para encontrar el nonce que hará que el hash del bloque concuerde con la
+        regla definida.
+      </p>
       <div class="medium-separator"></div>
       <div id="hash-container-mined">
-        <p class="text" id="zeroes" style="text-align: left; margin-left: 65px; display: inline;"></p>
-        <button id="down" class="button" style="display: inline;">-</button>
-        <button id="up" class="button" style="display: inline;">+</button>
+        <p
+          class="text"
+          id="zeroes"
+          style="text-align: left; margin-left: 65px; display: inline"
+        ></p>
+        <button id="down" class="button" style="display: inline">-</button>
+        <button id="up" class="button" style="display: inline">+</button>
         <div class="separator"></div>
-        <p class="text" style="text-align: left; margin-left: 65px;">Bloque:</p>
-        <textarea name="hash-input" id="block-number" rows="10" placeholder="Ingrese el número del bloque."></textarea>
+        <p class="text" style="text-align: left; margin-left: 65px">Bloque:</p>
+        <textarea
+          name="hash-input"
+          id="block-number"
+          rows="10"
+          placeholder="Ingrese el número del bloque."
+        ></textarea>
         <div class="separator"></div>
-        <p class="text" style="text-align: left; margin-left: 65px;">Nonce:</p>
-        <textarea name="hash-input" id="nonce" rows="10" placeholder="Modifique el Nonce del bloque, si lo desea."></textarea>
+        <p class="text" style="text-align: left; margin-left: 65px">Nonce:</p>
+        <textarea
+          name="hash-input"
+          id="nonce"
+          rows="10"
+          placeholder="Modifique el Nonce del bloque, si lo desea."
+        ></textarea>
         <div class="separator"></div>
-        <p class="text" style="text-align: left; margin-left: 65px;">Datos:</p>
-        <textarea name="hash-input" id="data-input" rows="10" placeholder="Ingrese los datos de una transacción o un algún mensaje cualquiera."></textarea>
+        <p class="text" style="text-align: left; margin-left: 65px">Datos:</p>
+        <textarea
+          name="hash-input"
+          id="data-input"
+          rows="10"
+          placeholder="Ingrese los datos de una transacción o un algún mensaje cualquiera."
+        ></textarea>
         <div class="medium-separator"></div>
-        <p class="text" style="text-align: left; margin-left: 65px;">Hash:</p>
+        <p class="text" style="text-align: left; margin-left: 65px">Hash:</p>
         <div class="div-box">
           <p id="hash-representation"></p>
         </div>
@@ -86,7 +194,7 @@
         <div class="medium-separator"></div>
         <button id="mine-block" class="button">Minar bloque</button>
         <!-- <div class="loader"></div> -->
-      </div>  
+      </div>
     </div>
   </body>
   <script src="../scripts/encription/sha256.js"></script>
