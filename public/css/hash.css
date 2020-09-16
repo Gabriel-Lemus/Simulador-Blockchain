@@ -13,6 +13,15 @@
   border-radius: 3px;
 }
 
+#hash-container {
+  width: 850px;
+  height: 225px;
+  text-align: center;
+  padding: 50px;
+  background-color: rgb(196, 196, 196);
+  border-radius: 5px;
+}
+
 #hash-container-mined {
   width: 850px;
   height: 485px;
