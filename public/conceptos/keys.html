@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compativle" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../images/favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alata&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <title>Encriptación y uso de llaves</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/hash.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul class="navigation-hyperlinks">
+        <li class="navbar-item">
+          <img
+            class="img-blockchain"
+            src="../images/blockchain.png"
+            alt="Blockchain illustration."
+          />
+        </li>
+        <li class="navbar-item">
+          <a href="../index.html" class="navbar-hyperlink"
+            ><h1 id="page-title">Simulador de Blockchain</h1></a
+          >
+        </li>
+        <div id="dropdown-menu">
+          <li class="navbar-item">
+            <h1 id="dropdown">Lecciones</h1>
+            <ul class="dropdown-list">
+              <li class="dropdown-item">
+                <a href="./hash.html" class="dropdown-hyperlink"
+                  >1. Hashes y encriptación</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="javascript:void(0)" class="dropdown-hyperlink"
+                  >2. Bloques, nonces y minar</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./blockchain.html" class="dropdown-hyperlink"
+                  >3. Cadena de bloques</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./distributed.html" class="dropdown-hyperlink"
+                  >4. Registro distribuido</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./tokens.html" class="dropdown-hyperlink">5. Tokens</a>
+              </li>
+            </ul>
+          </li>
+          <li class="navbar-item">
+            <img
+              class="img-dropdown-arrow"
+              src="../images/dropdown-menu-arrowpng.png"
+              alt="Dropdown arrow."
+            />
+          </li>
+        </div>
+      </ul>
+    </nav>
+    <div class="wrapper">
+      <h1 class="text-title">Encriptación y uso de llaves</h1>
+      <div class="medium-separator"></div>
+      <h2 class="subtitle">Encriptación</h2>
+      <div class="separator"></div>
+      <p class="text">
+        Como se mencionó en la sección referente a <em>hashes</em>, la
+        encriptación es un método para convertir información en un código
+        secreto que oculte el significado verdadero de dicha información. Dos de
+        los métodos más comúnes de encriptación es la encriptación
+        <em>simétrica</em> y <em>asimétrica</em>.
+      </p>
+      <div class="medium-separator"></div>
+      <h2 class="subtitle">Encriptación simétrica</h2>
+      <div class="separator"></div>
+      <p class="text">
+        Tanto en la encriptación simétrica y asimétrica se emplean códigos
+        especiales denominados <em>llaves</em> para encriptar y descencriptar la
+        información. La encriptación simétrica es la forma de encriptación más
+        sencilla que tan solo emplea una llave, llamada <em>llave pública</em>,
+        para encriptar y descencriptar la información. Dicha llave puede ser una
+        combinación de números, letras o ambos. Esta llave es combinada con un
+        mensaje en formato de texto para modificar su contenido en una forma
+        particular y difícil de discernir.
+      </p>
+      <div class="separator"></div>
+      <p class="text">
+        De esta manera, cuando una persona desee enviarle un mensaje encriptado
+        a otra persona, tanto el emisor como el receptor deben de conocer la
+        llave pública. Así, el emisor encripta el mensaje con la llave y envía
+        dicho mensaje; y el receptor realiza el proceso de descencriptado con la
+        misma llave para obtener el mensaje. Algunos de los algoritmos de
+        encriptación simétrica más populares son AES-128, AES-192 y AES-256.
+      </p>
+      <div class="separator"></div>
+      <div>
+        <img
+          src="../images/symmetric-encryption.png"
+          alt="Encriptación simétrica."
+          style="display: block; margin: 0 auto; height: 250px"
+        />
+        <p class="text" style="margin-top: 15px; text-align: center">
+          <em
+            >En la encriptación simétrica, el emisor emplea la llave pública
+            (clave secreta) para encripta un mensaje y el receptor emplea la
+            misma llave para descencriptarlo.</em
+          >
+        </p>
+      </div>
+      <div class="separator"></div>
+      <p class="text">
+        La ventaja principal que ofrece la encriptación simétrica es que todos
+        los involucrados únicamenten necesitan disponer de la misma llave para
+        encriptar y descencriptar los mensajes.
+      </p>
+      <div class="medium-separator"></div>
+      <h2 class="subtitle">Encriptación asimétrica</h2>
+      <div class="separator"></div>
+      <p class="text">
+        La encriptación asimétrica emplea dos llaves distintas para encriptar
+        los mensajes enviados: una <em>pública</em> y otra <em>privada</em>. En
+        este proceso, cada individuo genera una llave pública con la cual los
+        demás pueden encriptarle mensajes dirigidos a sí y emplean una llave
+        privada para descencriptarlos. De esta manera, se hace necesario que dos
+        individuos que deseen hacer uso de la encriptación asimétrica para
+        comunicarse, intercambien llaves públicas para el proceso de
+        encriptación y empleen sus llaves privadas para descencriptar los
+        mensajes.
+      </p>
+      <div class="separator"></div>
+      <p class="text">
+        De esta forma, es posible evitar que otros usuarios decodifiquen
+        fácilmente los mensajes, al no contar con las llaves privadas, aún si
+        interceptan los mensajes. Cabe mencionar que también es posible hacer
+        uso de las llaves privadas para encriptar mensajes y luego emplear las
+        públicas para descencriptarlos. De tal forma, no es necesario
+        preocuparse por la seguridad de la llave pública, ya que se encuentran
+        disponibles a todos los usuarios; por otro lado, es necesario resguardar
+        las llaves privadas, ya que sin ellas no se podría llevar a cabo el
+        proceso.
+      </p>
+      <div class="separator"></div>
+      <p class="text">
+        En la actualidad, la encriptación asimétrica es uno de las formas de
+        encriptación más populares utilizadas en los canales de comunicación,
+        así como en Blockchain. Algunos de los algoritmos más populares para
+        ello son: RSA, DSA, Criptografía de Curva Elíptica y PKCS.
+      </p>
+      <div class="separator"></div>
+      <div>
+        <img
+          src="../images/asymmetric-encryption.png"
+          alt="Encriptación asimétrica."
+          style="display: block; margin: 0 auto; height: 250px"
+        />
+        <p class="text" style="margin-top: 15px; text-align: center">
+          <em
+            >En la encriptación asimétrica, se emplean dos llaves: una privada
+            (única para cada usuario) y otra pública (la cual es accesible por
+            todos). Una de ellas es empleada para encriptar el mensaje y la otra es utilizada para descentcriptarlo</em
+          >
+        </p>
+      </div>
+      <div class="big-separator"></div>
+      <h1 class="text-title">Generador de llaves privadas y públicas</h1>
+      <div class="separator"></div>
+      <p class="text">
+        <b>Instrucciones: </b>A continuación, se le presenta un par de llaves:
+        una privada y una pública. Puede presionar el botón para generar
+        aleatoriamente un par de llaves correspondientes de este tipo.
+      </p>
+      <div class="medium-separator"></div>
+      <div id="hash-container" style="height: 215px">
+        <div class="separator"></div>
+        <p class="text" style="text-align: left; margin-left: 65px">
+          Llave privada:
+        </p>
+        <input class="text" id="private-key" style="width: 590px" />
+        <span
+          ><button
+            id="random-button"
+            class="button"
+            style="display: inline-block; width: 125px; height: 45px"
+          >
+            Aleatorizar
+          </button></span
+        >
+        <div class="separator"></div>
+        <div class="separator"></div>
+        <p class="text" style="text-align: left; margin-left: 65px">
+          Llave pública:
+        </p>
+        <input type="text" class="div-box" id="public-key" />
+      </div>
+    </div>
+  </body>
+  <script src="../scripts/encryption/"></script>
+  <script src="../scripts/encryption//js.cookies.min.js"></script>
+  <script src="../scripts/encryption//ellyptic.js"></script>
+  <script src="../scripts/keys.js"></script>
+</html>
