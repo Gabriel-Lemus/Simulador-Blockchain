@@ -20,19 +20,69 @@
   <body>
     <nav class="navbar">
       <ul class="navigation-hyperlinks">
-        <li class="navbar-item"><img class="img-blockchain" src="../images/blockchain.png" alt="Blockchain illustration." /></li>
-        <li class="navbar-item"><a href="../index.html" class="navbar-hyperlink"><h1 id="page-title">Simulador de Blockchain</h1></a></li>
+        <li class="navbar-item">
+          <img
+            class="img-blockchain"
+            src="../images/blockchain.png"
+            alt="Blockchain illustration."
+          />
+        </li>
+        <li class="navbar-item">
+          <a href="../index.html" class="navbar-hyperlink"
+            ><h1 id="page-title">Simulador de Blockchain</h1></a
+          >
+        </li>
         <div id="dropdown-menu">
-          <li class="navbar-item"><h1 id="dropdown">Lecciones</h1>
+          <li class="navbar-item">
+            <h1 id="dropdown">Lecciones</h1>
             <ul class="dropdown-list">
-              <li class="dropdown-item"><a href="javascript:void(0)" class="dropdown-hyperlink">1. Hashes y encriptación</a></li>
-              <li class="dropdown-item"><a href="./block.html" class="dropdown-hyperlink">2. Bloques, nonces y minar</a></li>
-              <li class="dropdown-item"><a href="./blockchain.html" class="dropdown-hyperlink">3. Cadena de bloques</a></li>
-              <li class="dropdown-item"><a href="./distributed.html" class="dropdown-hyperlink">4. Registro distribuido</a></li>
-              <li class="dropdown-item"><a href="./tokens.html" class="dropdown-hyperlink">5. Tokens</a></li>
+              <li class="dropdown-item">
+                <a href="javascript:void(0)" class="dropdown-hyperlink"
+                  >1. Hashes y encriptación</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./block.html" class="dropdown-hyperlink"
+                  >2. Bloques, nonces y minar</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./keys.html" class="dropdown-hyperlink"
+                  >3. Llaves criptográficas</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./signatures.html" class="dropdown-hyperlink"
+                  >4. Firma digital</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./transactions.html" class="dropdown-hyperlink"
+                  >5. Transacciones</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./blockchain.html" class="dropdown-hyperlink"
+                  >6. Cadena de bloques</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./distributed.html" class="dropdown-hyperlink"
+                  >7. Registro distribuido</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./tokens.html" class="dropdown-hyperlink">8. Tokens</a>
+              </li>
             </ul>
           </li>
-          <li class="navbar-item"><img class="img-dropdown-arrow" src="../images/dropdown-menu-arrowpng.png" alt="Dropdown arrow." /></li>
+          <li class="navbar-item">
+            <img
+              class="img-dropdown-arrow"
+              src="../images/dropdown-menu-arrowpng.png"
+              alt="Dropdown arrow."
+            />
+          </li>
         </div>
       </ul>
     </nav>
@@ -41,54 +91,159 @@
       <div class="medium-separator"></div>
       <h2 class="subtitle">Encriptación</h2>
       <div class="separator"></div>
-      <p class="text">La encriptación es un método mediante el cual información es convertida en un código secreto que oculta el significado verdadero de dicha información. La práctica de encriptar y desencriptar información es conocida como <em>criptografía</em>. Los métodos empleados para codificar y descodificar información mensajes son conocidos como <em title="Un algoritmo es una serie de pasos odenados que permite llevar a cabo una operación.">algoritmos de encriptación</em>.</p>
+      <p class="text">
+        La encriptación es un método mediante el cual información es convertida
+        en un código secreto que oculta el significado verdadero de dicha
+        información. La práctica de encriptar y desencriptar información es
+        conocida como <em>criptografía</em>. Los métodos empleados para
+        codificar y descodificar información mensajes son conocidos como
+        <em
+          title="Un algoritmo es una serie de pasos odenados que permite llevar a cabo una operación."
+          >algoritmos de encriptación</em
+        >.
+      </p>
       <div class="separator"></div>
-      <p class="text">Para que pueda sean lo más efectivos posibles, los algoritmos de encriptación emplean una variable como parte de su proceso. Esta variable, conocida como <em>llave</em>, es lo que permite que el resultado de la encriptación sea único. De esta manera, si alguna entidad no autorizada llegara a interceptar un mensaje encriptado, necesitaría determinar qué algoritmo de encriptación fue utilizado, así como la llave. El tiempo requerido para desencriptar un mensaje sin la llave apropiada, así como el nivel de dificultad del proceso, es lo que hace a la encriptación una herramienta valiosa de seguridad.</p>
+      <p class="text">
+        Para que pueda sean lo más efectivos posibles, los algoritmos de
+        encriptación emplean una variable como parte de su proceso. Esta
+        variable, conocida como <em>llave</em>, es lo que permite que el
+        resultado de la encriptación sea único. De esta manera, si alguna
+        entidad no autorizada llegara a interceptar un mensaje encriptado,
+        necesitaría determinar qué algoritmo de encriptación fue utilizado, así
+        como la llave. El tiempo requerido para desencriptar un mensaje sin la
+        llave apropiada, así como el nivel de dificultad del proceso, es lo que
+        hace a la encriptación una herramienta valiosa de seguridad.
+      </p>
       <div class="medium-separator"></div>
       <h2 class="subtitle">Función Hash Criptográfica</h2>
       <div class="separator"></div>
-      <p class="text">Una función hash criptográfica es un algoritmo que toma una cantidad arbitraria de información como entrada y produce un resultado de tamaño fijo como resultado, conocido como <em>digest</em>, aunque también se le suele llamar simplemente <em>hash</em>. A diferencia de los algoritmos de encriptación, los cuales pueden ser de dos vías; es decir que pueden ser encriptados y desencriptados al conocer la llave adecuada, la función hash es una función de una vía que produce un resultado con el cual es difícil de conocer el valor original de entrada. Esto no quiere decir que sea un proceso imposible de revertir, pero en la práctica, sería muy complicado de realizar.</p>
+      <p class="text">
+        Una función hash criptográfica es un algoritmo que toma una cantidad
+        arbitraria de información como entrada y produce un resultado de tamaño
+        fijo como resultado, conocido como <em>digest</em>, aunque también se le
+        suele llamar simplemente <em>hash</em>. A diferencia de los algoritmos
+        de encriptación, los cuales pueden ser de dos vías; es decir que pueden
+        ser encriptados y desencriptados al conocer la llave adecuada, la
+        función hash es una función de una vía que produce un resultado con el
+        cual es difícil de conocer el valor original de entrada. Esto no quiere
+        decir que sea un proceso imposible de revertir, pero en la práctica,
+        sería muy complicado de realizar.
+      </p>
       <div class="separator"></div>
-      <p class="text">A continuación, se encuentran algunas de las características principales de las funciones hash:</p>
+      <p class="text">
+        A continuación, se encuentran algunas de las características principales
+        de las funciones hash:
+      </p>
       <div class="separator"></div>
       <div class="secondary-text">
         <ul>
-          <li><p class="text"><b>No reversible. </b>Una función hash efectiva debe ser una cuyo resultado sea difícil de asociar a su valor de entrada original.</p></li>
-          <li><p class="text"><b>Difusión de contenido. </b>Un cambio realizado en tan solo un bit del valor de entrada original de resultar en un cambio a la mitad de los bits del nuevo hash. En otras palabras, cuando el valor de entrada sea alterado ligeramente, el hash producido debería cambiar drásticamente y de una forma impredecible.</p></li>
-          <li><p class="text"><b>Determinismo. </b>Un valor de entrada siempre debe generar el mismo valor de hash. Adicionalmente, el hash resultante siempre tendrá un tamaño determinado, sin importar la longitud del valor de entrada.</p></li>
-          <li><p class="text"><b>Resistencia a colisiones. </b>Debería ser muy difícil encontrar dos valores de entrada distintos que produzcan el mismo hash.</p></li>
-          <li><p class="text"><b>No predecible. </b>La función hash no debe producir patrones discernibles que permitan predecir los hashes producidos.</p></li>
+          <li>
+            <p class="text">
+              <b>No reversible. </b>Una función hash efectiva debe ser una cuyo
+              resultado sea difícil de asociar a su valor de entrada original.
+            </p>
+          </li>
+          <li>
+            <p class="text">
+              <b>Difusión de contenido. </b>Un cambio realizado en tan solo un
+              bit del valor de entrada original de resultar en un cambio a la
+              mitad de los bits del nuevo hash. En otras palabras, cuando el
+              valor de entrada sea alterado ligeramente, el hash producido
+              debería cambiar drásticamente y de una forma impredecible.
+            </p>
+          </li>
+          <li>
+            <p class="text">
+              <b>Determinismo. </b>Un valor de entrada siempre debe generar el
+              mismo valor de hash. Adicionalmente, el hash resultante siempre
+              tendrá un tamaño determinado, sin importar la longitud del valor
+              de entrada.
+            </p>
+          </li>
+          <li>
+            <p class="text">
+              <b>Resistencia a colisiones. </b>Debería ser muy difícil encontrar
+              dos valores de entrada distintos que produzcan el mismo hash.
+            </p>
+          </li>
+          <li>
+            <p class="text">
+              <b>No predecible. </b>La función hash no debe producir patrones
+              discernibles que permitan predecir los hashes producidos.
+            </p>
+          </li>
         </ul>
       </div>
       <div class="medium-separator"></div>
       <h2 class="subtitle">Algoritmos SHA y SHA256</h2>
       <div class="separator"></div>
-      <p class="text">Los algoritmos SHA (<em>Secure Hash Algorithm</em> - Algoritmo de Hash Seguro) conforman un grupo de funciones hash diseñadas para mantener asegurada la información. La primera versión de este algoritmo fue creada en 1993, con el nombre de SHA, pero se le conoce como SHA-0 en la actualidad, para evitar confusiones con las demás versiones. Cabe mencionar que esta versión es obsoleta, debido a diversas vulnerabilidades encontradas. SHA-1 fue creado en 1995; a pesar de que no se han encontrado vulnerabilidades directamente contra algoritmos de esta versión, sí se han dado ataques contra otros algoritmos que poseen una estructura similar a SHA-1, lo que ha puesto en duda la seguridad a largo plazo de esta versión. Los digests producidos tanto SHA-0 como SHA-1 son de 160 bits.</p>
+      <p class="text">
+        Los algoritmos SHA (<em>Secure Hash Algorithm</em> - Algoritmo de Hash
+        Seguro) conforman un grupo de funciones hash diseñadas para mantener
+        asegurada la información. La primera versión de este algoritmo fue
+        creada en 1993, con el nombre de SHA, pero se le conoce como SHA-0 en la
+        actualidad, para evitar confusiones con las demás versiones. Cabe
+        mencionar que esta versión es obsoleta, debido a diversas
+        vulnerabilidades encontradas. SHA-1 fue creado en 1995; a pesar de que
+        no se han encontrado vulnerabilidades directamente contra algoritmos de
+        esta versión, sí se han dado ataques contra otros algoritmos que poseen
+        una estructura similar a SHA-1, lo que ha puesto en duda la seguridad a
+        largo plazo de esta versión. Los digests producidos tanto SHA-0 como
+        SHA-1 son de 160 bits.
+      </p>
       <div class="separator"></div>
-      <p class="text">Con el propósito de brindar un nivel mayor de seguridad, se desarrolló SHA-2, en el 2001. Esta familia de algoritmos está conformada por SHA-224, SHA-256, SHA-384 y SHA-512. El tamaño de los digests producidos por algoritmos de este tipo son de 224 o 256 bits. También existe la familia SHA-3, pero esta versión difiere en su estructura con las demás.</p>
+      <p class="text">
+        Con el propósito de brindar un nivel mayor de seguridad, se desarrolló
+        SHA-2, en el 2001. Esta familia de algoritmos está conformada por
+        SHA-224, SHA-256, SHA-384 y SHA-512. El tamaño de los digests producidos
+        por algoritmos de este tipo son de 224 o 256 bits. También existe la
+        familia SHA-3, pero esta versión difiere en su estructura con las demás.
+      </p>
       <div class="separator"></div>
-      <p class="text">Entre los algoritmos más empleados de SHA-2 se encuentran SHA-256 y SHA-512, que son calculado con palabras de 32 y 64 bits, respectivamente. En particular, SHA-256 es utilizado comúnmente en distintas aplicaciones de Blockchain. De hecho, es el algoritmo empleado para el minado y creación de direcciones en el Blockchain de Bitcoin.</p>
+      <p class="text">
+        Entre los algoritmos más empleados de SHA-2 se encuentran SHA-256 y
+        SHA-512, que son calculado con palabras de 32 y 64 bits,
+        respectivamente. En particular, SHA-256 es utilizado comúnmente en
+        distintas aplicaciones de Blockchain. De hecho, es el algoritmo empleado
+        para el minado y creación de direcciones en el Blockchain de Bitcoin.
+      </p>
       <div class="big-separator"></div>
       <h1 class="text-title">Encriptador SHA256 Interactivo</h1>
       <div class="separator"></div>
-      <p class="text"><b>Instrucciones: </b>A continuación, escriba un mensaje en el área de abajo y conforme lo haga, verá el hash producido por dicho mensaje.</p>
+      <p class="text">
+        <b>Instrucciones: </b>A continuación, escriba un mensaje en el área de
+        abajo y conforme lo haga, verá el hash producido por dicho mensaje.
+      </p>
       <div class="medium-separator"></div>
       <div id="hash-container">
-        <p class="text" style="text-align: left; margin-left: 65px;">Mensaje:</p>
-        <textarea name="hash-input" id="data-input" rows="10" placeholder="Escriba un mensaje y debajo verá el hash correspondiente al mensaje bajo el algoritmo SHA-256."></textarea>
+        <p class="text" style="text-align: left; margin-left: 65px">Mensaje:</p>
+        <textarea
+          name="hash-input"
+          id="data-input"
+          rows="10"
+          placeholder="Escriba un mensaje y debajo verá el hash correspondiente al mensaje bajo el algoritmo SHA-256."
+        ></textarea>
         <div class="medium-separator"></div>
-        <p class="text" style="text-align: left; margin-left: 65px;">Hash:</p>
+        <p class="text" style="text-align: left; margin-left: 65px">Hash:</p>
         <div class="div-box">
           <p id="hash-representation"></p>
         </div>
       </div>
       <div class="big-separator"></div>
       <div class="ending-text">
-        <a style="display: inline-block;" id="ending-hyperlink" href="../index.html"><< Página inicial </a>
-        <div style="width: 7px; display: inline-block;"></div>
-        <p style="display: inline-block;" id="ending-hyperlink">|</p>
-        <div style="width: 7px; display: inline-block;"></div>
-        <a id="ending-hyperlink" href="./block.html">Bloques, nonces y minar >></a></div>
+        <a
+          style="display: inline-block"
+          id="ending-hyperlink"
+          href="../index.html"
+          ><< Página inicial
+        </a>
+        <div style="width: 7px; display: inline-block"></div>
+        <p style="display: inline-block" id="ending-hyperlink">|</p>
+        <div style="width: 7px; display: inline-block"></div>
+        <a id="ending-hyperlink" href="./block.html"
+          >Bloques, nonces y minar >></a
+        >
+      </div>
     </div>
   </body>
   <div class="big-separator"></div>

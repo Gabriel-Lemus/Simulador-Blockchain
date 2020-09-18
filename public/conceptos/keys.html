@@ -13,7 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap"
       rel="stylesheet"
     />
-    <title>Encriptación y uso de llaves</title>
+    <title>Llaves criptográficas</title>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/hash.css" />
   </head>
@@ -42,22 +42,37 @@
                 >
               </li>
               <li class="dropdown-item">
-                <a href="javascript:void(0)" class="dropdown-hyperlink"
+                <a href="./block.html" class="dropdown-hyperlink"
                   >2. Bloques, nonces y minar</a
                 >
               </li>
               <li class="dropdown-item">
+                <a href=".javascript:void(0)" class="dropdown-hyperlink"
+                  >3. Llaves criptográficas</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./signatures.html" class="dropdown-hyperlink"
+                  >4. Firma digital</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./transactions.html" class="dropdown-hyperlink"
+                  >5. Transacciones</a
+                >
+              </li>
+              <li class="dropdown-item">
                 <a href="./blockchain.html" class="dropdown-hyperlink"
-                  >3. Cadena de bloques</a
+                  >6. Cadena de bloques</a
                 >
               </li>
               <li class="dropdown-item">
                 <a href="./distributed.html" class="dropdown-hyperlink"
-                  >4. Registro distribuido</a
+                  >7. Registro distribuido</a
                 >
               </li>
               <li class="dropdown-item">
-                <a href="./tokens.html" class="dropdown-hyperlink">5. Tokens</a>
+                <a href="./tokens.html" class="dropdown-hyperlink">8. Tokens</a>
               </li>
             </ul>
           </li>
@@ -170,7 +185,8 @@
           <em
             >En la encriptación asimétrica, se emplean dos llaves: una privada
             (única para cada usuario) y otra pública (la cual es accesible por
-            todos). Una de ellas es empleada para encriptar el mensaje y la otra es utilizada para descentcriptarlo</em
+            todos). Una de ellas es empleada para encriptar el mensaje y la otra
+            es utilizada para descentcriptarlo</em
           >
         </p>
       </div>
@@ -204,6 +220,19 @@
           Llave pública:
         </p>
         <input type="text" class="div-box" id="public-key" />
+      </div>
+      <div class="big-separator"></div>
+      <div class="ending-text">
+        <a
+          style="display: inline-block"
+          id="ending-hyperlink"
+          href="./block.html"
+          ><< Bloques, nonces y minar
+        </a>
+        <div style="width: 7px; display: inline-block"></div>
+        <p style="display: inline-block" id="ending-hyperlink">|</p>
+        <div style="width: 7px; display: inline-block"></div>
+        <a id="ending-hyperlink" href="./signatures.html">Firma digital >></a>
       </div>
     </div>
   </body>
