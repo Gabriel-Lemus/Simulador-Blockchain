@@ -201,7 +201,7 @@
       <div class="medium-separator"></div>
       <div id="hash-container" style="height: 215px">
         <div class="separator"></div>
-        <p class="text" style="text-align: left; margin-left: 65px">
+        <p class="text" style="text-align: left; margin-left: 55px">
           Llave privada:
         </p>
         <input class="text" id="private-key" style="width: 590px" />
@@ -216,10 +216,21 @@
         >
         <div class="separator"></div>
         <div class="separator"></div>
-        <p class="text" style="text-align: left; margin-left: 65px">
+        <p class="text" style="text-align: left; margin-left: 55px">
           Llave pública:
         </p>
-        <input type="text" class="div-box" id="public-key" style="background-color: white;" />
+        <input
+          type="text"
+          class="div-box"
+          id="public-key"
+          style="
+            background-color: white;
+            padding: 10px;
+            border-radius: 3px;
+            border: 0;
+            outline: none;
+          "
+        />
       </div>
       <div class="big-separator"></div>
       <div class="ending-text">
@@ -236,8 +247,8 @@
       </div>
     </div>
   </body>
-  <script src="../scripts/encryption/"></script>
-  <script src="../scripts/encryption//js.cookies.min.js"></script>
-  <script src="../scripts/encryption//ellyptic.js"></script>
+  <script src="../scripts/encryption/BigInteger.min.js"></script>
+  <script src="../scripts/encryption/js.cookies.min.js"></script>
+  <script src="../scripts/encryption/ellyptic.js"></script>
   <script src="../scripts/keys.js"></script>
 </html>
