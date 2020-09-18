@@ -1,4 +1,6 @@
-#data-input, #block-number, #nonce {
+#data-input,
+#block-number,
+#nonce {
   width: 700px;
   height: 25px;
   padding: 10px;
@@ -40,8 +42,30 @@
   border-radius: 5px;
 }
 
-#hash-representation {
+#hash-representation,
+#public-key {
   font-family: 'Alata', sans-serif;
   color: #333;
   line-height: 50px;
+}
+
+#public-key,
+#public-key:focus {
+  padding: 0 10px;
+  border-radius: 3px;
+  border: 0;
+  outline: none;
+  font-family: 'Alata', sans-serif;
+  color: #333;
+  line-height: 50px;
+}
+
+#private-key,
+#private-key:focus {
+  width: 700px;
+  height: 25px;
+  padding: 10px;
+  border-radius: 3px;
+  border: 0;
+  outline: none;
 }
