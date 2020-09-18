@@ -1,6 +1,8 @@
 #data-input,
 #block-number,
-#nonce {
+#nonce,
+#user-message-1,
+#user-message-2 {
   width: 700px;
   height: 25px;
   padding: 10px;
@@ -29,7 +31,7 @@
   height: 485px;
   text-align: center;
   padding: 50px;
-  background-color: rgb(195, 255, 200);
+  background-color: rgb(147, 231, 154);
   border-radius: 5px;
 }
 
@@ -51,6 +53,7 @@
 
 #public-key,
 #public-key:focus {
+  width: 700px;
   padding: 0 10px;
   border-radius: 3px;
   border: 0;
@@ -68,4 +71,38 @@
   border-radius: 3px;
   border: 0;
   outline: none;
+}
+
+.signature-container-neutral-1,
+.signature-container-neutral-2 {
+  width: 850px;
+  height: 450px;
+  text-align: center;
+  padding: 50px;
+  background-color: #bbb;
+  border-radius: 5px;
+}
+
+.signature-container-signed {
+  width: 850px;
+  height: 450px;
+  text-align: center;
+  padding: 50px;
+  background-color: rgb(147, 231, 154);
+  border-radius: 5px;
+}
+
+#message-signature-1,
+#message-signature-2 {
+  background-color: #eee;
+  width: 710px;
+  height: 50px;
+  display: inline-block;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  font-family: 'Alata', sans-serif;
+  color: #333;
+  line-height: 50px;
+  padding: 0 5px;
 }
