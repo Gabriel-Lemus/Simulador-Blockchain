@@ -1,0 +1,22 @@
+{
+  "name": "blockchain-demo",
+  "version": "1.0.0",
+  "description": "List of npm modules used in a Blockchain simulation demo.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gabriel-Lemus/Simulador-Blockchain.git"
+  },
+  "author": "Gabriel Lemus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gabriel-Lemus/Simulador-Blockchain/issues"
+  },
+  "homepage": "https://github.com/Gabriel-Lemus/Simulador-Blockchain#readme",
+  "dependencies": {
+    "crypto-js": "^4.0.0"
+  }
+}
