@@ -175,10 +175,11 @@
         <p
           class="text"
           id="zeroes"
-          style="text-align: left; margin-left: 65px; display: inline"
+          style="text-align: left; display: inline"
         ></p>
-        <button id="down" class="button" style="display: inline">-</button>
-        <button id="up" class="button" style="display: inline">+</button>
+        <div class="separator"></div>
+        <button id="down" class="button-enabled" style="display: inline">-</button>
+        <button id="up" style="display: inline">+</button>
         <div class="separator"></div>
         <p class="text" style="text-align: left; margin-left: 65px">Bloque:</p>
         <textarea
@@ -211,8 +212,7 @@
         <div class="medium-separator"></div>
         <p class="text" id="is-mined"></p>
         <div class="medium-separator"></div>
-        <button id="mine-block" class="button">Minar bloque</button>
-        <!-- <div class="loader"></div> -->
+        <button id="mine-block" class="button-enabled">Minar bloque</button>
       </div>
       <div class="big-separator"></div>
       <div class="ending-text">
@@ -229,6 +229,5 @@
       </div>
     </div>
   </body>
-  <script src="../scripts/encryption/sha256.js"></script>
-  <script src="../scripts/block.js"></script>
+  <script src="../dist/block.js"></script>
 </html>

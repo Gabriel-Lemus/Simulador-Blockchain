@@ -1,3 +1,9 @@
+let SHA256 = require('crypto-js/sha256');
+
+window.sha256 = function (data) {
+  return SHA256(data).toString();
+};
+
 let block_number = document.getElementById('block-number');
 let nonce = document.getElementById('nonce');
 let input = document.getElementById('data-input');
@@ -9,74 +15,95 @@ let upButton = document.getElementById('up');
 let downButton = document.getElementById('down');
 
 let securityNumber = 4;
+let minSecurityNumber = 0;
+let maxSecurityNumber = 5;
 
 block_number.innerHTML = '1';
 let nonce_value = mineBlock();
-nonce.innerHTML = nonce_value.toString();
-
+nonce.innerHTML = nonce_value;
 zeroes.innerHTML = 'Ceros precedentes: ' + securityNumber.toString();
+hash.innerHTML = sha256(block_number.value + removeCommas(nonce_value));
 
-document.getElementById('hash-representation').innerHTML = sha256(
-  block_number.value + nonce_value
-);
+if (securityNumber == maxSecurityNumber) {
+  upButton.classList.add('button-disabled');
+} else {
+  upButton.classList.add('button-enabled');
+}
 
 block_number.onkeyup = function () {
-  hash.innerHTML = sha256(block_number.value + nonce.value + input.value);
+  hash.innerHTML = SHA256(
+    block_number.value + nonce.value + input.value
+  ).toString();
   checkData();
 };
 
 nonce.onkeyup = function () {
-  hash.innerHTML = sha256(block_number.value + nonce.value + input.value);
+  hash.innerHTML = SHA256(
+    block_number.value + nonce.value + input.value
+  ).toString();
   checkData();
 };
 
 input.onkeyup = function () {
-  hash.innerHTML = sha256(block_number.value + nonce.value + input.value);
+  hash.innerHTML = SHA256(
+    block_number.value + nonce.value + input.value
+  ).toString();
   checkData();
 };
 
 mineButton.onclick = function () {
   nonce_value = mineBlock();
-  data = block_number.value + nonce_value + input.value;
+  data = block_number.value + removeCommas(nonce_value) + input.value;
 
   setTimeout(() => {
-    hash.innerHTML = sha256(data);
+    hash.innerHTML = SHA256(data);
     // console.log(nonce_value);
-    nonce.value = nonce_value.toString();
+    nonce.value = nonce_value;
     blockContainer.id = 'hash-container-mined';
   }, 250);
 };
 
 upButton.onclick = function () {
-  if (securityNumber < 4) {
+  if (securityNumber < maxSecurityNumber) {
+    downButton.classList.remove('button-disabled');
+    downButton.classList.add('button-enabled');
     securityNumber++;
     checkData();
     zeroes.innerHTML = 'Ceros precedentes: ' + securityNumber.toString();
-    if (securityNumber == 4) {
-      upButton.class = 'button-disabled';
+    if (securityNumber == maxSecurityNumber) {
+      upButton.classList.remove('button-enabled');
+      upButton.classList.add('button-disabled');
     }
   }
 };
 
 downButton.onclick = function () {
-  if (securityNumber > 0) {
+  if (securityNumber > minSecurityNumber) {
+    upButton.classList.remove('button-disabled');
+    upButton.classList.add('button-enabled');
     securityNumber--;
     checkData();
     zeroes.innerHTML = 'Ceros precedentes: ' + securityNumber.toString();
-    if (securityNumber == 0) {
-      downButton.class = 'button-disabled';
+    if (securityNumber == minSecurityNumber) {
+      downButton.classList.remove('button-enabled');
+      downButton.classList.add('button-disabled');
     }
   }
 };
 
 function mineBlock() {
+  // mineButton.classList.remove('button-enabled');
+  // mineButton.classList.add('fa fa-spinner fa-spin');
   let nonce_number = 0;
 
   while (true) {
-    let mined_data = sha256(block_number.value + nonce_number + input.value);
+    let mined_data = SHA256(
+      block_number.value + nonce_number.toString() + input.value
+    ).toString();
 
     if (mined_data.slice(0, securityNumber) === '0'.repeat(securityNumber)) {
-      return nonce_number;
+      // console.log(nonce_number.toLocaleString());
+      return nonce_number.toLocaleString();
     } else {
       nonce_number += 1;
     }
@@ -84,11 +111,25 @@ function mineBlock() {
 }
 
 function checkData() {
-  let mined_data = sha256(block_number.value + nonce.value + input.value);
+  let mined_data = SHA256(
+    block_number.value + nonce.value + input.value
+  ).toString();
 
   if (mined_data.slice(0, securityNumber) !== '0'.repeat(securityNumber)) {
     blockContainer.id = 'hash-container-not-mined';
   } else {
     blockContainer.id = 'hash-container-mined';
   }
+}
+
+function removeCommas(string) {
+  let newString = '';
+
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] != ',') {
+      newString = newString.concat(string[i]);
+    }
+  }
+
+  return newString;
 }
