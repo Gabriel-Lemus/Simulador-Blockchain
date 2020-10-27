@@ -28,19 +28,19 @@
 
 #hash-container-mined {
   width: 850px;
-  height: 485px;
+  height: 530px;
   text-align: center;
   padding: 50px;
-  background-color: rgb(147, 231, 154);
+  background-color: rgb(149, 243, 131);
   border-radius: 5px;
 }
 
 #hash-container-not-mined {
   width: 850px;
-  height: 485px;
+  height: 530px;
   text-align: center;
   padding: 50px;
-  background-color: rgb(250, 220, 220);
+  background-color: rgb(255, 165, 161);
   border-radius: 5px;
 }
 
