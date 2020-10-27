@@ -27619,7 +27619,6 @@ let nonce_value = mineBlock();
 nonce.innerHTML = nonce_value;
 zeroes.innerHTML = 'Ceros precedentes: ' + securityNumber.toString();
 hash.innerHTML = sha256(block_number.value + removeCommas(nonce_value));
-console.log(removeCommas(nonce_value));
 
 if (securityNumber == maxSecurityNumber) {
   upButton.classList.add('button-disabled');
@@ -27629,21 +27628,21 @@ if (securityNumber == maxSecurityNumber) {
 
 block_number.onkeyup = function () {
   hash.innerHTML = SHA256(
-    block_number.value + nonce.value + input.value
+    block_number.value + removeCommas(nonce.value) + input.value
   ).toString();
   checkData();
 };
 
 nonce.onkeyup = function () {
   hash.innerHTML = SHA256(
-    block_number.value + nonce.value + input.value
+    block_number.value + removeCommas(nonce.value) + input.value
   ).toString();
   checkData();
 };
 
 input.onkeyup = function () {
   hash.innerHTML = SHA256(
-    block_number.value + nonce.value + input.value
+    block_number.value + removeCommas(nonce.value) + input.value
   ).toString();
   checkData();
 };
@@ -27699,7 +27698,7 @@ function mineBlock() {
     ).toString();
 
     if (mined_data.slice(0, securityNumber) === '0'.repeat(securityNumber)) {
-      console.log(nonce_number.toLocaleString());
+      // console.log(nonce_number.toLocaleString());
       return nonce_number.toLocaleString();
     } else {
       nonce_number += 1;
@@ -27709,7 +27708,7 @@ function mineBlock() {
 
 function checkData() {
   let mined_data = SHA256(
-    block_number.value + nonce.value + input.value
+    block_number.value + removeCommas(nonce.value) + input.value
   ).toString();
 
   if (mined_data.slice(0, securityNumber) !== '0'.repeat(securityNumber)) {

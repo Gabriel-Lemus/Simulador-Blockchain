@@ -32,21 +32,21 @@ if (securityNumber == maxSecurityNumber) {
 
 block_number.onkeyup = function () {
   hash.innerHTML = SHA256(
-    block_number.value + nonce.value + input.value
+    block_number.value + removeCommas(nonce.value) + input.value
   ).toString();
   checkData();
 };
 
 nonce.onkeyup = function () {
   hash.innerHTML = SHA256(
-    block_number.value + nonce.value + input.value
+    block_number.value + removeCommas(nonce.value) + input.value
   ).toString();
   checkData();
 };
 
 input.onkeyup = function () {
   hash.innerHTML = SHA256(
-    block_number.value + nonce.value + input.value
+    block_number.value + removeCommas(nonce.value) + input.value
   ).toString();
   checkData();
 };
@@ -112,7 +112,7 @@ function mineBlock() {
 
 function checkData() {
   let mined_data = SHA256(
-    block_number.value + nonce.value + input.value
+    block_number.value + removeCommas(nonce.value) + input.value
   ).toString();
 
   if (mined_data.slice(0, securityNumber) !== '0'.repeat(securityNumber)) {
