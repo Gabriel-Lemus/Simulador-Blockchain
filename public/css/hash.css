@@ -28,7 +28,7 @@
 
 #hash-container-mined {
   width: 850px;
-  height: 530px;
+  height: 580px;
   text-align: center;
   padding: 50px;
   background-color: rgb(149, 243, 131);
@@ -37,7 +37,7 @@
 
 #hash-container-not-mined {
   width: 850px;
-  height: 530px;
+  height: 580px;
   text-align: center;
   padding: 50px;
   background-color: rgb(255, 165, 161);
