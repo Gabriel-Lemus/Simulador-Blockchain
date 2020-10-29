@@ -27613,6 +27613,7 @@ let downButton = document.getElementById('down');
 let securityNumber = 4;
 let minSecurityNumber = 0;
 let maxSecurityNumber = 5;
+let isMined = true;
 
 block_number.innerHTML = '1';
 let nonce_value = mineBlock();
@@ -27648,15 +27649,26 @@ input.onkeyup = function () {
 };
 
 mineButton.onclick = function () {
-  nonce_value = mineBlock();
-  data = block_number.value + removeCommas(nonce_value) + input.value;
+  if (!isMined) {
+    mineButton.classList.remove('mine-button');
+    mineButton.classList.add('loading');
 
-  setTimeout(() => {
-    hash.innerHTML = SHA256(data);
-    // console.log(nonce_value);
-    nonce.value = nonce_value;
-    blockContainer.id = 'hash-container-mined';
-  }, 250);
+    setTimeout(() => {
+      nonce_value = mineBlock();
+      data = block_number.value + removeCommas(nonce_value) + input.value;
+      setTimeout(() => {
+        hash.innerHTML = SHA256(data);
+        // console.log(nonce_value);
+        nonce.value = nonce_value;
+        blockContainer.id = 'hash-container-mined';
+        isMined = true;
+        mineButton.classList.remove('loading');
+        mineButton.classList.add('mine-button');
+        mineButton.classList.add('mine-button-disabled');
+        mineButton.classList.remove('mine-button');
+      }, 250);
+    }, 0);
+  }
 };
 
 upButton.onclick = function () {
@@ -27688,8 +27700,6 @@ downButton.onclick = function () {
 };
 
 function mineBlock() {
-  // mineButton.classList.remove('button-enabled');
-  // mineButton.classList.add('fa fa-spinner fa-spin');
   let nonce_number = 0;
 
   while (true) {
@@ -27712,9 +27722,15 @@ function checkData() {
   ).toString();
 
   if (mined_data.slice(0, securityNumber) !== '0'.repeat(securityNumber)) {
+    isMined = false;
     blockContainer.id = 'hash-container-not-mined';
+    mineButton.classList.add('mine-button');
+    mineButton.classList.remove('mine-button-disabled');
   } else {
+    isMined = true;
     blockContainer.id = 'hash-container-mined';
+    mineButton.classList.add('mine-button-disabled');
+    mineButton.classList.remove('mine-button');
   }
 }
 
