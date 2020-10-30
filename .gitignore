@@ -67,3 +67,6 @@ node_modules/
 
 # Test file
 test.html
+
+# VSCode Settings Folder
+.vscode
