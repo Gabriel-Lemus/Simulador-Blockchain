@@ -51,11 +51,13 @@
   line-height: 50px;
 }
 
-#public-key,
-#public-key:focus {
-  width: 700px;
+#public-key {
+  display: inline;
+  width: 590px;
+  height: 45px;
   padding: 0 10px;
-  border-radius: 3px;
+  border-radius: 7px 0 0 7px;
+  font-size: 14px;
   border: 0;
   outline: none;
   font-family: 'Alata', sans-serif;
@@ -63,14 +65,41 @@
   line-height: 50px;
 }
 
-#private-key,
-#private-key:focus {
-  width: 700px;
+#private-key {
+  width: 720px;
   height: 25px;
   padding: 10px;
-  border-radius: 3px;
+  border-radius: 7px;
   border: 0;
+  font-family: 'Alata', sans-serif;
+  font-size: 14px;
+  color: #333;
+  background-color: white;
   outline: none;
+}
+
+#public-key:focus, #private-key:focus {
+  outline: auto;
+  outline-color: #555;
+}
+
+#random-button {
+  background-color: #4c6faf;
+  font-size: 14px;
+  border: none;
+  color: white;
+  border-radius: 0 10px 10px 0;
+  text-align: center;
+  text-decoration: none;
+  display: inline;
+  font-size: 16px;
+  outline: none;
+  width: 125px;
+  height: 45px;
+}
+
+#random-button:hover {
+  cursor: pointer;
 }
 
 .signature-container-neutral-1,
