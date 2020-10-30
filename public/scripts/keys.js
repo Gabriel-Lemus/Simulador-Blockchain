@@ -1,37 +1,53 @@
-let EC = elliptic.elliptic().ec;
-let ec = new EC('secp256k1');
+let NodeRSA = require('node-rsa');
 
-let keypair = ec.genKeyPair();
-if (Cookies.get('privateKey')) {
-  keypair = ec.keyFromPrivate(Cookies.get('privateKey'));
-}
+window.getKeys = function () {
+  let key = new NodeRSA({ b: 128 });
 
-let privateKey = document.getElementById('private-key');
+  let publicKey = key.exportKey('public').toString().slice(27, 79);
+  let privateKey_ = key.exportKey('private').toString().slice(32, 121);
+  let privateKey = '';
+
+  for (let i = 0; i < privateKey_.length; i++) {
+    if (privateKey_[i] != '\n') {
+      privateKey += privateKey_[i];
+    }
+  }
+
+  return {
+    publicKey: publicKey,
+    privateKey: privateKey,
+  };
+};
+
 let publicKey = document.getElementById('public-key');
+let privateKey = document.getElementById('private-key');
 let randomButton = document.getElementById('random-button');
 
-let prv = keypair.getPrivate('hex');
-let pub = keypair.getPublic('hex');
+let key;
+let publicKeyValue;
+let privateKey_;
+let privateKeyValue;
 
-update();
+updateKeys();
 
-function update() {
-  prv = keypair.getPrivate('hex');
-  pub = keypair.getPublic('hex');
+randomButton.onclick = updateKeys;
 
-  privateKey.value = prv;
-  publicKey.value = pub;
+function getKeyPair() {
+  key = new NodeRSA({ b: 128 });
 
-  Cookies.set('privateKey', prv.toString());
-  Cookies.set('publicKey', pub.toString());
-  // console.log(prv);
+  publicKeyValue = key.exportKey('public').toString().slice(27, 79);
+  privateKey_ = key.exportKey('private').toString().slice(32, 121);
+  privateKeyValue = '';
+
+  for (let i = 0; i < privateKey_.length; i++) {
+    if (privateKey_[i] != '\n') {
+      privateKeyValue += privateKey_[i];
+    }
+  }
 }
 
-function random() {
-  keypair = ec.genKeyPair();
-  update();
+function updateKeys() {
+  getKeyPair();
+  publicKey.value = publicKeyValue;
+  privateKey.value = privateKeyValue;
 }
-
-randomButton.onclick = function () {
-  random();
-};

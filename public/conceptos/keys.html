@@ -203,24 +203,18 @@
       <div id="hash-container" style="height: 215px">
         <div class="separator"></div>
         <p class="text" style="text-align: left; margin-left: 55px">
-          Llave privada:
+          Llave Pública:
         </p>
-        <input class="text" id="private-key" style="width: 590px" />
+        <input class="text" id="public-key" />
         <span
-          ><button
-            id="random-button"
-            class="button"
-            style="display: inline-block; width: 125px; height: 45px"
-          >
-            Aleatorizar
-          </button></span
+          ><button id="random-button" class="button">Aleatorizar</button></span
         >
         <div class="separator"></div>
         <div class="separator"></div>
         <p class="text" style="text-align: left; margin-left: 55px">
-          Llave pública:
+          Llave Privada:
         </p>
-        <input type="text" class="div-box" id="public-key" style="width: 725px;" />
+        <input type="text" class="div-box" id="private-key" />
       </div>
       <div class="big-separator"></div>
       <div class="ending-text">
@@ -237,8 +231,5 @@
       </div>
     </div>
   </body>
-  <script src="../scripts/encryption/BigInteger.min.js"></script>
-  <script src="../scripts/encryption/js.cookies.min.js"></script>
-  <script src="../scripts/encryption/ellyptic.js"></script>
-  <script src="../scripts/keys.js"></script>
+  <script src="../dist/keys.js"></script>
 </html>
