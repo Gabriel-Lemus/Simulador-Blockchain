@@ -1,12 +1,11 @@
 #data-input,
 #block-number,
-#nonce,
-#user-message-1,
-#user-message-2 {
+#nonce {
   width: 700px;
   height: 25px;
   padding: 10px;
   border-radius: 3px;
+  resize: none;
 }
 
 .div-box {
@@ -78,7 +77,8 @@
   outline: none;
 }
 
-#public-key:focus, #private-key:focus {
+#public-key:focus,
+#private-key:focus {
   outline: auto;
   outline-color: #555;
 }
@@ -121,17 +121,53 @@
   border-radius: 5px;
 }
 
-#message-signature-1,
-#message-signature-2 {
-  background-color: #eee;
-  width: 710px;
-  height: 50px;
-  display: inline-block;
-  border-radius: 3px;
-  border: none;
-  outline: none;
+#private-key-space,
+#public-key-space,
+#message-signature-original,
+#message-signature-copy {
+  width: 700px;
+  height: 25px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 0;
   font-family: 'Alata', sans-serif;
+  font-size: 14px;
   color: #333;
-  line-height: 50px;
-  padding: 0 5px;
+  background-color: white;
+  outline: none;
+}
+
+#sign-button,
+#verify-button {
+  background-color: #4c6faf;
+  font-size: 14px;
+  border: none;
+  color: white;
+  border-radius: 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline;
+  font-size: 16px;
+  outline: none;
+  width: calc(100% - 125px);
+  height: 35px;
+}
+
+#sign-button,
+#verify-button {
+  cursor: pointer;
+}
+
+#user-message-1,
+#user-message-2 {
+  width: 700px;
+  height: 125px;
+  padding: 10px;
+  border-radius: 3px;
+  outline: none;
+  border: 0;
+  resize: none;
+  font-family: 'Alata', sans-serif;
+  font-size: 14px;
+  color: #333;
 }
