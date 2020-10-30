@@ -6,6 +6,9 @@
   padding: 10px;
   border-radius: 3px;
   resize: none;
+  font-family: 'Alata', sans-serif;
+  font-size: 14px;
+  color: #333;
 }
 
 .div-box {
