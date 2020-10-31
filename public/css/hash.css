@@ -257,3 +257,169 @@
 #receiver-2 {
   border-radius: 0 7px 7px 0;
 }
+
+#blockchain-settings {
+  height: 225px;
+  width: 1000px;
+  background-color: #bbb;
+  border-radius: 15px;
+}
+
+#blockchain {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  height: 600px;
+  width: 1000px;
+  background-color: #bbb;
+  border-radius: 15px;
+}
+
+.blockchain-block {
+  width: 500px;
+  min-width: 500px;
+  height: 490px;
+  background-color: rgb(255, 165, 161);
+  position: relative;
+  top: 50px;
+  left: 40px;
+  border-radius: 15px;
+  float: left;
+  margin-left: 15px;
+}
+
+#block-data {
+  padding: 15px 0 0 15px;
+}
+
+.block-info {
+  background-color: #eee;
+  width: 455px;
+  height: 35px;
+  display: inline-block;
+  border-radius: 3px;
+  font-family: 'Alata', sans-serif;
+  font-size: 14px;
+  padding-left: 10px;
+}
+
+.block-mined {
+  background-color: rgb(149, 243, 131);
+}
+
+.mine-single-block {
+  background-color: #4c6faf;
+  font-size: 14px;
+  border: none;
+  color: white;
+  border-radius: 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline;
+  font-size: 16px;
+  outline: none;
+  width: 125px;
+  height: 35px;
+  margin-left: 165px;
+}
+
+.already-mined {
+  background-color: #555;
+  font-size: 14px;
+  border: none;
+  color: white;
+  border-radius: 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline;
+  font-size: 16px;
+  outline: none;
+  width: 125px;
+  height: 35px;
+  margin-left: 165px;
+}
+
+.mine-single-block:hover {
+  cursor: pointer;
+}
+
+#amount,
+#sender,
+#receiver {
+  width: 245px;
+  height: 25px;
+  padding: 10px;
+  border: 0;
+  font-family: 'Alata', sans-serif;
+  font-size: 14px;
+  color: #333;
+  background-color: white;
+  outline: none;
+  float: left;
+}
+
+#amount {
+  width: 175px;
+}
+
+#receiver {
+  border-radius: 0 7px 7px 0;
+}
+
+#add-trx-button {
+  margin-left: 65px;
+}
+
+.enabled {
+  background-color: #4c6faf;
+  font-size: 14px;
+  border: none;
+  color: white;
+  border-radius: 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline;
+  font-size: 16px;
+  outline: none;
+  width: calc(((100% - 125px) / 3.05));
+  height: 35px;
+}
+
+.enabled:hover {
+  cursor: pointer;
+}
+
+.disabled {
+  background-color: #555;
+  font-size: 14px;
+  border: none;
+  color: white;
+  border-radius: 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline;
+  font-size: 16px;
+  outline: none;
+  width: calc(((100% - 125px) / 3.05));
+  height: 35px;
+}
+
+.loading-button {
+  font-size: 0;
+  width: 35px;
+  height: 35px;
+  outline: none;
+  border-radius: 50%;
+  border: 4px solid #4c6faf;
+  color: #4c6faf;
+  background-color: transparent;
+  border-left-color: transparent;
+  animation: rotate 1.4s ease 0.5s infinite;
+  margin-left: 200px;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(360deg);
+  }
+}
