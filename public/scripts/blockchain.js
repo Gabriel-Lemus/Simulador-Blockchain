@@ -106,7 +106,7 @@ class Blockchain {
 
   get description() {
     let data = '';
-    console.log('Number of blocks: ' + this.blockList.length);
+    // console.log('Number of blocks: ' + this.blockList.length);
 
     for (let i = 0; i < this.blockList.length; i++) {
       data +=
@@ -299,7 +299,7 @@ function addBlockToBlockchain(sender, receiver, amount) {
       );
 
       blockchain.blockList[blockToMine - 1].mineBlock();
-      console.log(blockchain.description);
+      // console.log(blockchain.description);
 
       document.getElementById('nonce-' + blockToMine).value =
         blockchain.blockList[blockToMine - 1].nonce;
