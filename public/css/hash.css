@@ -203,3 +203,57 @@
   width: calc(100% - 125px);
   height: 35px;
 }
+
+#currency,
+#sender-div,
+#receiver-div {
+  width: 70px;
+  height: 34px;
+  padding-top: 11px;
+  background-color: #4c6faf;
+  color: white;
+  font-family: 'Alata', sans-serif;
+  text-align: center;
+  float: left;
+}
+
+#currency {
+  margin-left: 65px;
+  border-radius: 7px 0 0 7px;
+  width: 40px;
+}
+
+#receiver-div {
+  padding-top: 7px;
+  width: 35px;
+  height: 38px;
+  font-size: 20px;
+}
+
+#amount-1,
+#sender-1,
+#receiver-1,
+#amount-2,
+#sender-2,
+#receiver-2 {
+  width: 195px;
+  height: 25px;
+  padding: 10px;
+  border: 0;
+  font-family: 'Alata', sans-serif;
+  font-size: 14px;
+  color: #333;
+  background-color: white;
+  outline: none;
+  float: left;
+}
+
+#amount-1,
+#amount-2 {
+  width: 125px;
+}
+
+#receiver-1,
+#receiver-2 {
+  border-radius: 0 7px 7px 0;
+}
