@@ -5,38 +5,252 @@
     <meta http-equiv="X-UA-Compativle" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../images/favicon.ico" />
-    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alata&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap"
+      rel="stylesheet"
+    />
     <title>Transacciones</title>
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/hash.css" />
   </head>
   <body>
     <nav class="navbar">
       <ul class="navigation-hyperlinks">
-        <li class="navbar-item"><img class="img-blockchain" src="../images/blockchain.png" alt="Blockchain illustration." /></li>
-        <li class="navbar-item"><a href="../index.html" class="navbar-hyperlink"><h1 id="page-title">Simulador de Blockchain</h1></a></li>
+        <li class="navbar-item">
+          <img
+            class="img-blockchain"
+            src="../images/blockchain.png"
+            alt="Blockchain illustration."
+          />
+        </li>
+        <li class="navbar-item">
+          <a href="../index.html" class="navbar-hyperlink"
+            ><h1 id="page-title">Simulador de Blockchain</h1></a
+          >
+        </li>
         <div id="dropdown-menu">
-          <li class="navbar-item"><h1 id="dropdown">Lecciones</h1>
+          <li class="navbar-item">
+            <h1 id="dropdown">Lecciones</h1>
             <ul class="dropdown-list">
-              <li class="dropdown-item"><a href="./hash.html" class="dropdown-hyperlink">1. Hashes y encriptación</a></li>
-              <li class="dropdown-item"><a href="./block.html" class="dropdown-hyperlink">2. Bloques, nonces y minar</a></li>
-              <li class="dropdown-item"><a href="./keys.html" class="dropdown-hyperlink">3. Llaves criptográficas</a></li>
-              <li class="dropdown-item"><a href="./signatures.html" class="dropdown-hyperlink">4. Firma digital</a></li>
-              <li class="dropdown-item"><a href="javascript:void(0)" class="dropdown-hyperlink">5. Transacciones</a></li>
-              <li class="dropdown-item"><a href="./blockchain.html" class="dropdown-hyperlink">6. Cadena de bloques</a></li>
-              <li class="dropdown-item"><a href="./distributed.html" class="dropdown-hyperlink">7. Registro distribuido</a></li>
-              <li class="dropdown-item"><a href="./tokens.html" class="dropdown-hyperlink">8. Tokens</a></li>
+              <li class="dropdown-item">
+                <a href="./hash.html" class="dropdown-hyperlink"
+                  >1. Hashes y encriptación</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./block.html" class="dropdown-hyperlink"
+                  >2. Bloques, nonces y minar</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./keys.html" class="dropdown-hyperlink"
+                  >3. Llaves criptográficas</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./signatures.html" class="dropdown-hyperlink"
+                  >4. Firma digital</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="javascript:void(0)" class="dropdown-hyperlink"
+                  >5. Transacciones</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./blockchain.html" class="dropdown-hyperlink"
+                  >6. Cadena de bloques</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./distributed.html" class="dropdown-hyperlink"
+                  >7. Registro distribuido</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./tokens.html" class="dropdown-hyperlink">8. Tokens</a>
+              </li>
             </ul>
           </li>
-          <li class="navbar-item"><img class="img-dropdown-arrow" src="../images/dropdown-menu-arrowpng.png" alt="Dropdown arrow." /></li>
+          <li class="navbar-item">
+            <img
+              class="img-dropdown-arrow"
+              src="../images/dropdown-menu-arrowpng.png"
+              alt="Dropdown arrow."
+            />
+          </li>
         </div>
       </ul>
     </nav>
     <div class="wrapper">
       <h1 class="text-title">Transacciones</h1>
-      <div class="big-separator"></div>
-      <div class="under-construction" style="text-align: center;">
-        <img src="../images/transaction-concept.png" alt="Sitio bajo construcción." style="height: 400px;">
+      <div class="separator"></div>
+      <p class="text">
+        En la vida diaria, es común hacer uso de las firmas escritas para ligar
+        un acuerdo legal, ya que es difícil falcificar las firmas de este tipo.
+        De forma similar, una forma digital es una técnica criptográfica que
+        liga una persona a un conjunto de datos; por ejemplo, podría validar que
+        un mensaje fue creado por un individuo determinado y que el mensaje no
+        fue alterado en su trayecto.
+      </p>
+      <div class="separator"></div>
+      <p class="text">
+        Dentro de las transacciones financieras, acuerdos legales y otros usos,
+        como en Blockchain, las firmas digitales son empleadas para implementar
+        firmas electrónicas. Nótese que no todas las firmas electrónicas
+        utilizan firmas digitales.
+      </p>
+      <div class="medium-separator"></div>
+      <div class="medium-separator"></div>
+      <h2 class="subtitle">
+        El siguiente proceso describe cómo funciona una firma digital:
+      </h2>
+      <div class="separator"></div>
+      <div class="items-list">
+        <ol>
+          <li>
+            <p class="text">
+              <b>Generar un hash a partir de los datos a enviar.</b>
+            </p>
+          </li>
+          <div style="height: 5px"></div>
+          <p class="text">
+            El emisor (individuo que realizará la firma) emite la información
+            que se enviará a una función hash para que esta quede encriptada.
+            Cabe recordar que el valor de este hash es único de dicho mensaje.
+          </p>
+          <div class="medium-separator"></div>
+          <li>
+            <p class="text">
+              <b>Generar la firma digital.</b>
+            </p>
+          </li>
+          <div style="height: 5px"></div>
+          <p class="text">
+            El hash producido por el mensaje y la llave privada del emisor son
+            emitidos a un algoritmo de firmado para producir la firma digital de
+            acuerdo con los datos provistos.
+          </p>
+          <div class="medium-separator"></div>
+          <li>
+            <p class="text">
+              <b>Enviar el mensaje al receptor.</b>
+            </p>
+          </li>
+          <div style="height: 5px"></div>
+          <p class="text">
+            El emisor le envía el mensaje deseado al recpetor junto con la firma
+            digital.
+          </p>
+          <div class="medium-separator"></div>
+          <li>
+            <p class="text">
+              <b>El receptor verifica el hash generado por el emisor.</b>
+            </p>
+          </li>
+          <div style="height: 5px"></div>
+          <p class="text">
+            Luego de recibir el mensaje y la firma, el receptor emite la llave
+            pública y la firma digital del emisor al algoritmo empleado. Esto
+            generará como resultado un hash.
+          </p>
+          <div class="medium-separator"></div>
+          <li>
+            <p class="text">
+              <b
+                >Regenerar el hash a partir de los datos y de la muestra enviada
+                por el emisor.</b
+              >
+            </p>
+          </li>
+          <div style="height: 5px"></div>
+          <p class="text">
+            Finalmente, el receptor emplea la misma función hash y genera el
+            valor hash a partir de los datos originales. Si este hash concuerda
+            con el hash enviado por el emisor, el receptor tendrá la certeza de
+            que la firma digital es válida y que ni el mensaje o la firma fue
+            alterada.
+          </p>
+          <div class="medium-separator"></div>
+        </ol>
+      </div>
+      <div class="medium-separator"></div>
+      <h1 class="text-title">Simulación de firma digital</h1>
+      <div class="separator"></div>
+      <p class="text">
+        <b>Instrucciones: </b>A continuación, se le presentan dos campos: firma
+        y verificación. El campo de firma (emisor) le proveerá una llave privada
+        y permitirá crear un mensaje, de manera que al generar la firma digital,
+        esta y el mensaje le sea enviado al receptor (campo de verificación).
+        Una vez que sea verificado el mensaje, si este no ha sido modificado, el
+        campo obtendrá un color verde para simbolizar que el proceso de
+        verificación fue un éxito.
+      </p>
+      <div class="medium-separator"></div>
+      <h1 class="text-title">Firma</h1>
+      <div class="medium-separator"></div>
+      <div
+        id="signature-card"
+        class="signature-container-neutral-1"
+        style="height: 350px"
+      >
+        <p class="text" style="text-align: left; margin-left: 65px">Mensaje:</p>
+        <div style="height: 3px"></div>
+        <div id="currency">Q.</div>
+        <input class="text" id="amount-1" />
+        <div id="sender-div">Emisor</div>
+        <input class="text" id="sender-1" />
+        <div id="receiver-div">➜</div>
+        <input class="text" id="receiver-1" />
+        <div class="big-separator"></div>
+        <p class="text" style="text-align: left; margin-left: 65px">
+          Llave Privada:
+        </p>
+        <input class="text" id="private-key-space" />
+        <div class="medium-separator"></div>
+        <button id="sign-button" class="sign-button">Firmar</button>
+        <div class="medium-separator"></div>
+        <p class="text" style="text-align: left; margin-left: 65px">
+          Firma del mensaje:
+        </p>
+        <input type="text" id="message-signature-original" />
+        <div class="medium-separator"></div>
+        <p class="text" id="is-mined"></p>
+      </div>
+      <div class="medium-separator"></div>
+      <h1 class="text-title">Verificación</h1>
+      <div class="medium-separator"></div>
+      <div
+        id="verification-card"
+        class="signature-container-neutral-2"
+        style="height: 350px"
+      >
+        <p class="text" style="text-align: left; margin-left: 65px">Mensaje:</p>
+        <div style="height: 3px"></div>
+        <div id="currency">Q.</div>
+        <input class="text" id="amount-2" />
+        <div id="sender-div">Emisor</div>
+        <input class="text" id="sender-2" />
+        <div id="receiver-div">➜</div>
+        <input class="text" id="receiver-2" />
+        <div class="big-separator"></div>
+        <p class="text" style="text-align: left; margin-left: 65px">
+          Llave Pública:
+        </p>
+        <input class="text" id="public-key-space" style="font-size: 14px" />
+        <div class="medium-separator"></div>
+        <p class="text" style="text-align: left; margin-left: 65px">
+          Firma del mensaje:
+        </p>
+        <input type="text" id="message-signature-copy" />
+        <div class="medium-separator"></div>
+        <button id="verify-button" class="verify-button-disabled">Verificar</button>
+        <div class="medium-separator"></div>
+        <p class="text" id="is-mined"></p>
       </div>
       <div class="big-separator"></div>
       <div class="ending-text">
@@ -55,4 +269,5 @@
       </div>
     </div>
   </body>
+  <script src="../dist/transactions.js"></script>
 </html>

@@ -1,6 +1,5 @@
 let NodeRSA = require('node-rsa');
 
-let signatureCard = document.getElementById('signature-card');
 let verificationCard = document.getElementById('verification-card');
 let userMessage1 = document.getElementById('user-message-1');
 let userMessage2 = document.getElementById('user-message-2');
@@ -88,6 +87,12 @@ publicKey.onkeyup = function () {
   verifyButton.classList.remove('verify-button-disabled');
   verifyButton.classList.add('verify-button');
   canVerify = true;
+
+  if (publicKey.value.toString() == publicKeyValue) {
+    validPublicKey = true;
+  } else {
+    validPublicKey = false;
+  }
 };
 
 messageSignatureCopy.onkeyup = function () {
