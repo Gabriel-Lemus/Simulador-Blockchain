@@ -1,78 +1,122 @@
-let EC = elliptic.elliptic().ec;
-let ec = new EC('secp256k1');
+let NodeRSA = require('node-rsa');
 
-let keypair = ec.genKeyPair();
-if (Cookies.get('privateKey')) {
-  keypair = ec.keyFromPrivate(Cookies.get('privateKey'));
-}
-
-let card1 = document.getElementById('card1');
-let card2 = document.getElementById('card2');
-let privateKey = document.getElementById('private-key');
-let publicKey = document.getElementById('public-key');
-let message1 = document.getElementById('user-message-1');
-let message2 = document.getElementById('user-message-2');
+let signatureCard = document.getElementById('signature-card');
+let verificationCard = document.getElementById('verification-card');
+let userMessage1 = document.getElementById('user-message-1');
+let userMessage2 = document.getElementById('user-message-2');
+let messageSignatureOriginal = document.getElementById(
+  'message-signature-original'
+);
+let messageSignatureCopy = document.getElementById('message-signature-copy');
+let privateKey = document.getElementById('private-key-space');
+let publicKey = document.getElementById('public-key-space');
 let signButton = document.getElementById('sign-button');
 let verifyButton = document.getElementById('verify-button');
-let messageSignature1 = document.getElementById('message-signature-1');
-let messageSignature2 = document.getElementById('message-signature-2');
-let verified = false;
 
-let private_key = keypair.getPrivate('hex');
-let public_key = keypair.getPublic('hex');
-let message_signature = sha256(message1.value) + sha256(message1.value);
+let key;
+let publicKeyValue;
+let privateKey_;
+let privateKeyValue;
+let previousSignature;
+let newSignature;
+let canVerify = false;
+let previousSecondMessage = userMessage1.value.toString();
+let newSecondMessage;
+let validPublicKey = true;
 
-card1.style.backgroundColor = 'lightgrey';
-card2.style.backgroundColor = 'lightgrey';
+setKeys();
+verifyButton.classList.add('verify-button-disabled');
 
-update();
+function getKeyPair() {
+  key = new NodeRSA({ b: 512 });
 
-function update() {
-  private_key = keypair.getPrivate('hex');
-  public_key = keypair.getPublic('hex');
+  publicKeyValue = key.exportKey('public').toString().slice(27, 79);
+  privateKey_ = key.exportKey('private').toString().slice(32, 121);
+  privateKeyValue = '';
 
-  privateKey.value = private_key;
-  publicKey.value = public_key;
-
-  Cookies.set('privateKey', private_key.toString());
-  Cookies.set('publicKey', public_key.toString());
+  for (let i = 0; i < privateKey_.length; i++) {
+    if (privateKey_[i] != '\n') {
+      privateKeyValue += privateKey_[i];
+    }
+  }
 }
 
-message1.onkeyup = function () {
-  message2.value = message1.value;
-  card1.style.backgroundColor = 'lightgrey';
-};
+function setKeys() {
+  getKeyPair();
+  privateKey.value = privateKeyValue;
+  publicKey.value = publicKeyValue;
+}
 
 signButton.onclick = function () {
-  card1.style.backgroundColor = 'lightgreen';
-
-  message_signature = sha256(message1.value) + sha256(message1.value);
-
-  messageSignature1.value = message_signature;
-  messageSignature2.value = message_signature;
+  verifyButton.classList.remove('verify-button-disabled');
+  canVerify = true;
+  signButton.classList.add('sign-button-disabled');
+  let data = userMessage1.value.toString();
+  previousSignature = key.sign(data, 'base64', 'utf8');
+  messageSignatureOriginal.value = previousSignature;
+  messageSignatureCopy.value = previousSignature;
 };
 
-message2.onkeyup = function () {
-  if (message2.value !== message1.value) {
-    card2.style.backgroundColor = 'coral';
+userMessage1.onkeyup = function () {
+  userMessage2.value = userMessage1.value;
+  previousSecondMessage = userMessage1.value.toString();
+  newSignature = key.sign(userMessage1.value.toString(), 'base64', 'utf8');
+
+  if (previousSignature != newSignature) {
+    signButton.classList.remove('sign-button-disabled');
   } else {
-    if (verified) {
-      card2.style.backgroundColor = 'lightgreen';
-    } else {
-      card2.style.backgroundColor = 'lightgrey';
-    }
+    signButton.classList.add('sign-button-disabled');
   }
 };
 
-verifyButton.onclick = function () {
-  if (
-    publicKey.value === public_key &&
-    message2.value === message1.value &&
-    messageSignature2.value === messageSignature1.value
-  ) {
-    card2.style.backgroundColor = 'lightgreen';
-    verified = true;
+userMessage2.onkeyup = function () {
+  newSecondMessage = userMessage2.value.toString();
+
+  canVerify = true;
+
+  if (previousSecondMessage == newSecondMessage) {
+    verifyButton.classList.remove('verify-button');
+    verifyButton.classList.add('verify-button-disabled');
+    verifyButton.onclick();
   } else {
-    card2.style.backgroundColor = 'coral';
+    verifyButton.classList.remove('verify-button-disabled');
+    verifyButton.classList.add('verify-button');
+  }
+};
+
+publicKey.onkeyup = function () {
+  verifyButton.classList.remove('verify-button-disabled');
+  verifyButton.classList.add('verify-button');
+  canVerify = true;
+};
+
+messageSignatureCopy.onkeyup = function () {
+  verifyButton.classList.remove('verify-button-disabled');
+  verifyButton.classList.add('verify-button');
+  canVerify = true;
+};
+
+verifyButton.onclick = function () {
+  if (canVerify) {
+    let data = userMessage2.value.toString();
+    verifyButton.classList.remove('verify-button');
+    verifyButton.classList.add('verify-button-disabled');
+
+    let verification = key.verify(
+      data,
+      messageSignatureCopy.value.toString(),
+      'utf8',
+      'base64'
+    );
+
+    if (verification && validPublicKey) {
+      verificationCard.classList.remove('container-no-match');
+      verificationCard.classList.add('container-match');
+    } else {
+      verificationCard.classList.remove('container-match');
+      verificationCard.classList.add('container-no-match');
+    }
+
+    canVerify = false;
   }
 };

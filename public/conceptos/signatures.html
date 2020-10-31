@@ -195,7 +195,7 @@
       <div class="medium-separator"></div>
       <h1 class="text-title">Firma</h1>
       <div class="medium-separator"></div>
-      <div id="card1" class="signature-container-neutral-1">
+      <div id="signature-card" class="signature-container-neutral-1">
         <p class="text" style="text-align: left; margin-left: 65px">Mensaje:</p>
         <textarea
           name="message-input"
@@ -208,53 +208,40 @@
         <p class="text" style="text-align: left; margin-left: 65px">
           Llave Privada:
         </p>
-        <input class="text" id="private-key" />
+        <input class="text" id="private-key-space" />
         <div class="medium-separator"></div>
-        <button
-          id="sign-button"
-          class="button"
-          style="width: calc(100% - 125px); height: 35px"
-        >
-          Firmar
-        </button>
+        <button id="sign-button" class="sign-button">Firmar</button>
         <div class="medium-separator"></div>
         <p class="text" style="text-align: left; margin-left: 65px">
           Firma del mensaje:
         </p>
-        <input type="text" id="message-signature-1" />
+        <input type="text" id="message-signature-original" />
         <div class="medium-separator"></div>
         <p class="text" id="is-mined"></p>
       </div>
       <div class="medium-separator"></div>
       <h1 class="text-title">Verificación</h1>
       <div class="medium-separator"></div>
-      <div id="card2" class="signature-container-neutral-2">
+      <div id="verification-card" class="signature-container-neutral-2">
         <p class="text" style="text-align: left; margin-left: 65px">Mensaje:</p>
         <textarea
           name="message-input"
           id="user-message-2"
           rows="10"
           placeholder="Escriba un mensaje."
-          style="height: 125px; outline: none; border: 0"
         ></textarea>
         <div class="separator"></div>
         <p class="text" style="text-align: left; margin-left: 65px">
           Llave Pública:
         </p>
-        <input class="text" id="public-key" style="font-size: 14px" />
+        <input class="text" id="public-key-space" style="font-size: 14px" />
         <div class="medium-separator"></div>
         <p class="text" style="text-align: left; margin-left: 65px">
           Firma del mensaje:
         </p>
-        <input type="text" id="message-signature-2" />
+        <input type="text" id="message-signature-copy" />
         <div class="medium-separator"></div>
-        <button
-          id="verify-button"
-          class="button"
-          style="width: calc(100% - 125px); height: 35px"
-        >
-          Verificar
-        </button>
+        <button id="verify-button" class="verify-button">Verificar</button>
         <div class="medium-separator"></div>
         <p class="text" id="is-mined"></p>
       </div>
@@ -270,9 +257,5 @@
       <div class="big-separator"></div>
     </div>
   </body>
-  <script src="../scripts/encryption/sha256.js"></script>
-  <script src="../scripts/encryption/BigInteger.min.js"></script>
-  <script src="../scripts/encryption/js.cookies.min.js"></script>
-  <script src="../scripts/encryption/ellyptic.js"></script>
-  <script src="../scripts/signature.js"></script>
+  <script src="../dist/signature.js"></script>
 </html>
