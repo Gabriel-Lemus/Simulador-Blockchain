@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <title>Cadena de bloques</title>
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/hash.css" />
   </head>
   <body>
     <nav class="navbar">
@@ -33,11 +34,26 @@
       </ul>
     </nav>
     <div class="wrapper">
-      <h1 class="text-title">Página de prueba</h1>
-      <div class="big-separator"></div>
-      <div class="under-construction" style="text-align: center;">
-        <img src="../images/under-construction.png" alt="Sitio bajo construcción." style="height: 250px;">
+      <h1 class="text-title">Cadena de Bloques</h1>
+      <div class="separator"></div>
+      <div id="blockchain-settings">
+        <div class="separator"></div>
+        <div class="separator"></div>
+        <p class="text" style="margin-left: 65px;">Transacción:</p>
+        <div style="height: 3px;"></div>
+        <div id="currency">Q.</div>
+        <input class="text" id="amount" />
+        <div id="sender-div">Emisor</div>
+        <input class="text" id="sender" />
+        <div id="receiver-div">➜</div>
+        <input class="text" id="receiver" />
+        <div class="big-separator"></div>
+        <button id="add-trx-button" class="enabled">Agregar Bloque</button>
+        <button id="random-trx-button" class="enabled">Transacción Aleatoria</button>
+        <button id="undo-trx-button" class="disabled">Invertir Transacción</button>
       </div>
+      <div class="separator"></div>
+      <div id="blockchain"></div>
       <div class="big-separator"></div>
       <div class="ending-text">
         <a
@@ -55,4 +71,5 @@
       </div>
     </div>
   </body>
+  <script src="../dist/blockchain.js"></script>
 </html>
