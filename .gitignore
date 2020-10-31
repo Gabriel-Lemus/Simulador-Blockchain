@@ -70,3 +70,6 @@ test.html
 
 # VSCode Settings Folder
 .vscode
+
+# JS Test File
+test.js
