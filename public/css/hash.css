@@ -107,11 +107,14 @@
 .signature-container-neutral-1,
 .signature-container-neutral-2 {
   width: 850px;
-  height: 400px;
   text-align: center;
   padding: 50px;
   background-color: #bbb;
   border-radius: 5px;
+}
+
+.signature-container-neutral-1 {
+  height: 425px;
 }
 
 .container-match {
