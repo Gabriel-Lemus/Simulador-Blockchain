@@ -15,6 +15,7 @@
     />
     <title>Registro distribuido</title>
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/hash.css" />
   </head>
   <body>
     <nav class="navbar">
@@ -86,8 +87,8 @@
     </nav>
     <div class="wrapper">
       <h1 class="text-title">Registro distribuido</h1>
-      <div class="big-separator"></div>
-      <div id="blockchain-settings">
+      <div class="separator"></div>
+      <div id="blockchain-settings" style="height: 255px">
         <div class="separator"></div>
         <div class="separator"></div>
         <p class="text" style="margin-left: 65px">Transacción:</p>
@@ -100,12 +101,45 @@
         <input class="text" id="receiver" />
         <div class="big-separator"></div>
         <button id="add-trx-button" class="enabled">Agregar Bloque</button>
-        <button id="random-trx-button" class="enabled">Transacción Aleatoria</button>
-        <button id="undo-trx-button" class="disabled">Invertir Transacción</button>
-        <div class="separator" style="height: 23px;"></div>
-        <input type="checkbox" id="show-addresses" name="addresses" value="address-bool" style="margin-left: 410px;">
-        <label for="show-addresses" class="text" id="checkbox-label">Mostrar direcciones</label>
+        <button id="random-trx-button" class="enabled">
+          Transacción Aleatoria
+        </button>
+        <button id="undo-trx-button" class="disabled">
+          Invertir Transacción
+        </button>
+        <div class="separator" style="height: 23px"></div>
+        <input
+          type="checkbox"
+          id="show-addresses"
+          name="addresses"
+          value="address-bool"
+          style="margin-left: 175px"
+        />
+        <label
+          for="show-addresses"
+          class="text"
+          id="checkbox-label"
+          style="margin-right: 75px"
+          >Mostrar direcciones</label
+        >
+        <p
+          class="text"
+          id="peers-number"
+          style="display: inline; margin-right: 25px"
+        ></p>
+        <button id="add-peers-button" class="enabled">Agregar Peers</button>
         <div class="separator"></div>
+      </div>
+      <div class="separator"></div>
+      <div id="peers">
+        <p class="text" style="margin: 15px auto 0 auto" id="peer-desc-1">Peer #1</p>
+        <div class="blockchain" id="peer-1"></div>
+        <div class="big-separator"></div>
+        <p class="text" style="margin: 15px auto 0 auto" id="peer-desc-2">Peer #2</p>
+        <div class="blockchain" id="peer-2"></div>
+        <div class="big-separator"></div>
+        <p class="text" style="margin: 15px auto 0 auto" id="peer-desc-3">Peer #3</p>
+        <div class="blockchain" id="peer-3"></div>
       </div>
       <div class="big-separator"></div>
       <div class="ending-text">
@@ -113,13 +147,10 @@
           style="display: inline-block"
           id="ending-hyperlink"
           href="./blockchain.html"
-          ><< Cadena de bloques
+          ><< Cadena de bloques >>
         </a>
-        <div style="width: 7px; display: inline-block"></div>
-        <p style="display: inline-block" id="ending-hyperlink">|</p>
-        <div style="width: 7px; display: inline-block"></div>
-        <a id="ending-hyperlink" href="./tokens.html">Tokens >></a>
       </div>
     </div>
   </body>
+  <script src="../dist/distributed.js"></script>
 </html>
