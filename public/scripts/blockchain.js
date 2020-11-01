@@ -3,14 +3,36 @@ let NodeRSA = require('node-rsa');
 
 class Transaction {
   constructor(sender, receiver, amount) {
+    let key = new NodeRSA({ b: 256 });
+    this.publicKey = key.exportKey('public').toString().slice(27, 79);
+    let privateKey_ = key.exportKey('private').toString().slice(32, 121);
+    this.privateKey = '';
+
+    for (let i = 0; i < privateKey_.length; i++) {
+      if (privateKey_[i] != '\n') {
+        this.privateKey += privateKey_[i];
+      }
+    }
+
     this.sender = sender;
+    this.senderAddress = SHA256(this.privateKey);
     this.receiver = receiver;
+    this.receiverAddress = SHA256(this.publicKey);
     this.amount = amount;
+
+    console.log(this.privateKey);
+    console.log(this.publicKey);
   }
 
   get description() {
     return (
-      'Q.' + this.amount + ' de ' + this.sender + ' para ' + this.receiver + '.'
+      'Q.' +
+      this.amount.toLocaleString() +
+      ' de ' +
+      this.sender +
+      ' para ' +
+      this.receiver +
+      '.'
     );
   }
 }
@@ -161,6 +183,31 @@ let names = [
   'Cristina',
   'Iván',
   'Carolina',
+  'Alicia',
+  'Juan',
+  'Mónica',
+  'Andrés',
+  'Antonio',
+  'Julio',
+  'Paula',
+  'Rodrigo',
+  'Luis',
+  'Tomás',
+  'Gerardo',
+  'Víctor',
+  'Gonzalo',
+  'Martín',
+  'Diana',
+  'Susana',
+  'Adriana',
+  'Julieta',
+  'Karla',
+  'Ernesto',
+  'Felipe',
+  'Héctor',
+  'Omar',
+  'Mario',
+  'Enrique',
 ];
 
 let amount = document.getElementById('amount');
@@ -174,6 +221,7 @@ let blockchainSpace = document.getElementById('blockchain');
 let blockchain;
 let blockNumber = 0;
 let securityNumber = 4;
+let showNames = true;
 
 assignRandomValues();
 
@@ -187,8 +235,22 @@ function assignRandomValues() {
 
   sender.value = names[firstNumber];
   receiver.value = names[secondNumber];
-  amount.value =
-    Math.floor(Math.random() * (100 * 100 - 1 * 100) + 1 * 100) / (1 * 100);
+  amount.value = (
+    Math.floor(Math.random() * (1000000 * 100 - 1 * 100) + 1 * 100) /
+    (1 * 100)
+  ).toLocaleString(undefined, { minimumFractionDigits: 2 });
+}
+
+function removeCommas(string) {
+  let newString = '';
+
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] != ',') {
+      newString = newString.concat(string[i]);
+    }
+  }
+
+  return newString;
 }
 
 function canAddBlocks() {
@@ -246,6 +308,7 @@ function addBlockToBlockchain(sender, receiver, amount) {
   let blockNum = document.createElement('input');
   blockNum.classList.add('block-info');
   blockNum.type = 'text';
+  blockNum.readOnly = true;
   blockNum.value = blockNumber;
 
   let nonceTag = document.createElement('p');
@@ -255,6 +318,7 @@ function addBlockToBlockchain(sender, receiver, amount) {
   let nonceVal = document.createElement('input');
   nonceVal.classList.add('block-info');
   nonceVal.id = 'nonce-' + blockNumber.toString();
+  nonceVal.readOnly = true;
   nonceVal.type = 'text';
 
   let trxTag = document.createElement('p');
@@ -264,6 +328,7 @@ function addBlockToBlockchain(sender, receiver, amount) {
   let trxVal = document.createElement('input');
   trxVal.classList.add('block-info');
   trxVal.type = 'text';
+  trxVal.readOnly = true;
   trxVal.value = blockchain.blockList[blockNumber - 1].transaction.description;
 
   let hashTag = document.createElement('p');
@@ -274,6 +339,7 @@ function addBlockToBlockchain(sender, receiver, amount) {
   hashVal.classList.add('block-info');
   hashVal.id = 'hash-' + blockNumber.toString();
   hashVal.type = 'text';
+  hashVal.readOnly = true;
 
   let prevHashTag = document.createElement('p');
   prevHashTag.classList.add('text');
@@ -282,6 +348,7 @@ function addBlockToBlockchain(sender, receiver, amount) {
   let prevHashVal = document.createElement('input');
   prevHashVal.classList.add('block-info');
   prevHashVal.type = 'text';
+  prevHashVal.readOnly = true;
   prevHashVal.value = blockchain.blockList[blockNumber - 1].previousHash;
 
   let mineButton = document.createElement('button');
@@ -359,7 +426,7 @@ addBlockButton.onclick = function () {
     addBlockToBlockchain(
       sender.value.toString(),
       receiver.value.toString(),
-      parseFloat(amount.value.toString())
+      parseFloat(removeCommas(amount.value.toString()))
     );
   }
 

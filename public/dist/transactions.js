@@ -32738,6 +32738,7 @@ let privateKey = document.getElementById('private-key-space');
 let publicKey = document.getElementById('public-key-space');
 let signButton = document.getElementById('sign-button');
 let verifyButton = document.getElementById('verify-button');
+let randomButton = document.getElementById('assign-rand-values');
 
 let key;
 let publicKeyValue;
@@ -32749,8 +32750,80 @@ let canVerify = false;
 let validPublicKey = true;
 let data;
 
+let names = [
+  'Alejandro',
+  'Daniel',
+  'Hernán',
+  'Luis',
+  'Raúl',
+  'Enrique',
+  'Lucía',
+  'Ricardo',
+  'María',
+  'Mauricio',
+  'Paula',
+  'Laura',
+  'Andrea',
+  'Ana',
+  'Claudia',
+  'David',
+  'Pablo',
+  'Adrián',
+  'Javier',
+  'Álvaro',
+  'Diego',
+  'Carla',
+  'Cristina',
+  'Iván',
+  'Carolina',
+  'Alicia',
+  'Juan',
+  'Mónica',
+  'Andrés',
+  'Antonio',
+  'Julio',
+  'Paula',
+  'Rodrigo',
+  'Luis',
+  'Tomás',
+  'Gerardo',
+  'Víctor',
+  'Gonzalo',
+  'Martín',
+  'Diana',
+  'Susana',
+  'Adriana',
+  'Julieta',
+  'Karla',
+  'Ernesto',
+  'Felipe',
+  'Héctor',
+  'Omar',
+  'Mario',
+  'Enrique',
+];
+
+function assignRandomValues() {
+  let firstNumber = Math.floor(Math.random() * names.length);
+  let secondNumber = Math.floor(Math.random() * names.length);
+
+  while (secondNumber == firstNumber) {
+    secondNumber = Math.floor(Math.random() * names.length);
+  }
+
+  sender1.value = names[firstNumber];
+  sender2.value = sender1.value;
+  receiver1.value = names[secondNumber];
+  receiver2.value = receiver1.value;
+  amount1.value = (
+    Math.floor(Math.random() * (1000 * 100 - 1 * 100) + 1 * 100) /
+    (1 * 100)
+  ).toLocaleString(undefined, { minimumFractionDigits: 2 });
+  amount2.value = amount1.value;
+}
+
 setKeys();
-setMessage();
+assignRandomValues();
 changeData();
 
 function getKeyPair() {
@@ -32773,15 +32846,6 @@ function setKeys() {
   publicKey.value = publicKeyValue;
 }
 
-function setMessage() {
-  amount1.value = '50.00';
-  amount2.value = '50.00';
-  sender1.value = 'Juan';
-  sender2.value = 'Juan';
-  receiver1.value = 'Francisco';
-  receiver2.value = 'Francisco';
-}
-
 function changeData() {
   data =
     'Q.' +
@@ -32791,6 +32855,14 @@ function changeData() {
     ' to ' +
     receiver1.value.toString();
 }
+
+randomButton.onclick = function () {
+  assignRandomValues();
+  changeData();
+
+  signButton.classList.remove('sign-button-disabled');
+  signButton.classList.add('sign-button-enabled');
+};
 
 signButton.onclick = function () {
   verifyButton.classList.remove('verify-button-disabled');
@@ -32811,14 +32883,14 @@ signButton.onclick = function () {
     receiver2.value.toString();
 
   let verification = key.verify(
-      newData,
-      messageSignatureCopy.value.toString(),
-      'utf8',
-      'base64'
-    );
+    newData,
+    messageSignatureCopy.value.toString(),
+    'utf8',
+    'base64'
+  );
 
-    verificationCard.classList.remove('container-match');
-    verificationCard.classList.remove('container-no-match');
+  verificationCard.classList.remove('container-match');
+  verificationCard.classList.remove('container-no-match');
 };
 
 amount1.onkeyup = function () {
