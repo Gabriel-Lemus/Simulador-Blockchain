@@ -33725,26 +33725,12 @@ let SHA256 = require('crypto-js/sha256');
 let NodeRSA = require('node-rsa');
 
 class Transaction {
-  constructor(sender, receiver, amount) {
-    let key = new NodeRSA({ b: 256 });
-    this.publicKey = key.exportKey('public').toString().slice(27, 79);
-    let privateKey_ = key.exportKey('private').toString().slice(32, 121);
-    this.privateKey = '';
-
-    for (let i = 0; i < privateKey_.length; i++) {
-      if (privateKey_[i] != '\n') {
-        this.privateKey += privateKey_[i];
-      }
-    }
-
+  constructor(sender, senderAddress, receiver, receiverAddress, amount) {
     this.sender = sender;
-    this.senderAddress = SHA256(this.privateKey);
+    this.senderAddress = senderAddress;
     this.receiver = receiver;
-    this.receiverAddress = SHA256(this.publicKey);
+    this.receiverAddress = receiverAddress;
     this.amount = amount;
-
-    console.log(this.privateKey);
-    console.log(this.publicKey);
   }
 
   get description() {
@@ -33755,6 +33741,18 @@ class Transaction {
       this.sender +
       ' para ' +
       this.receiver +
+      '.'
+    );
+  }
+
+  get longDescription() {
+    return (
+      'Q.' +
+      this.amount.toLocaleString() +
+      ' de ' +
+      this.senderAddress +
+      ' para ' +
+      this.receiverAddress +
       '.'
     );
   }
@@ -33804,8 +33802,21 @@ class Block {
 }
 
 class Blockchain {
-  constructor(sender, receiver, amount, securityNumber) {
-    let firstTransaction = new Transaction(sender, receiver, amount);
+  constructor(
+    sender,
+    senderAddress,
+    receiver,
+    receiverAddress,
+    amount,
+    securityNumber
+  ) {
+    let firstTransaction = new Transaction(
+      sender,
+      senderAddress,
+      receiver,
+      receiverAddress,
+      amount
+    );
     let genesisBlock = new Block(
       1,
       firstTransaction,
@@ -33819,8 +33830,14 @@ class Blockchain {
     this.securityNumber = securityNumber;
   }
 
-  addBlock(sender, receiver, amount) {
-    let newTransaction = new Transaction(sender, receiver, amount);
+  addBlock(sender, senderAddress, receiver, receiverAddress, amount) {
+    let newTransaction = new Transaction(
+      sender,
+      senderAddress,
+      receiver,
+      receiverAddress,
+      amount
+    );
     let newBlock = new Block(
       this.length + 1,
       newTransaction,
@@ -33860,6 +33877,18 @@ class Blockchain {
         '\n' +
         'Transaction: ' +
         this.blockList[i].transaction.description +
+        '\n' +
+        'Sender name: ' +
+        this.blockList[i].transaction.sender +
+        '\n' +
+        'Receiver name: ' +
+        this.blockList[i].transaction.receiver +
+        '\n' +
+        'Sender address: ' +
+        this.blockList[i].transaction.senderAddress +
+        '\n' +
+        'Receiver address: ' +
+        this.blockList[i].transaction.receiverAddress +
         '\n' +
         'Nonce: ' +
         this.blockList[i].nonce +
@@ -33940,14 +33969,34 @@ let addBlockButton = document.getElementById('add-trx-button');
 let randomButton = document.getElementById('random-trx-button');
 let undoButton = document.getElementById('undo-trx-button');
 let blockchainSpace = document.getElementById('blockchain');
+let checkBox = document.getElementById('show-addresses');
 
 let blockchain;
 let blockNumber = 0;
 let securityNumber = 4;
 
+let key;
+let publicKey;
+let privateKey;
+let senderName;
+let senderAddress;
+let receiverName;
+let receiverAddress;
+
 assignRandomValues();
 
 function assignRandomValues() {
+  key = new NodeRSA({ b: 256 });
+  publicKey = key.exportKey('public').toString().slice(27, 79);
+  let privateKey_ = key.exportKey('private').toString().slice(32, 121);
+  privateKey = '';
+
+  for (let i = 0; i < privateKey_.length; i++) {
+    if (privateKey_[i] != '\n') {
+      privateKey += privateKey_[i];
+    }
+  }
+
   let firstNumber = Math.floor(Math.random() * names.length);
   let secondNumber = Math.floor(Math.random() * names.length);
 
@@ -33956,7 +34005,11 @@ function assignRandomValues() {
   }
 
   sender.value = names[firstNumber];
+  senderName = sender.value.toString();
+  senderAddress = SHA256(privateKey).toString();
   receiver.value = names[secondNumber];
+  receiverAddress = SHA256(publicKey).toString();
+  receiverName = receiver.value.toString();
   amount.value = (
     Math.floor(Math.random() * (1000000 * 100 - 1 * 100) + 1 * 100) /
     (1 * 100)
@@ -33985,11 +34038,30 @@ function canAddBlocks() {
   return true;
 }
 
-function addBlockToBlockchain(sender, receiver, amount) {
+function addBlockToBlockchain(
+  sender,
+  senderAddress,
+  receiver,
+  receiverAddress,
+  amount
+) {
   if (blockNumber == 0) {
-    blockchain = new Blockchain(sender, receiver, amount, securityNumber);
+    blockchain = new Blockchain(
+      sender,
+      senderAddress,
+      receiver,
+      receiverAddress,
+      amount,
+      securityNumber
+    );
   } else {
-    blockchain.addBlock(sender, receiver, amount);
+    blockchain.addBlock(
+      sender,
+      senderAddress,
+      receiver,
+      receiverAddress,
+      amount
+    );
   }
 
   blockNumber += 1;
@@ -34049,9 +34121,16 @@ function addBlockToBlockchain(sender, receiver, amount) {
 
   let trxVal = document.createElement('input');
   trxVal.classList.add('block-info');
+  trxVal.id = 'trx-' + blockNumber.toString();
   trxVal.type = 'text';
-  trxVal.readOnly = true;
-  trxVal.value = blockchain.blockList[blockNumber - 1].transaction.description;
+  // trxVal.readOnly = true;
+  if (checkBox.checked) {
+    trxVal.value =
+      blockchain.blockList[blockNumber - 1].transaction.longDescription;
+  } else {
+    trxVal.value =
+      blockchain.blockList[blockNumber - 1].transaction.description;
+  }
 
   let hashTag = document.createElement('p');
   hashTag.classList.add('text');
@@ -34146,8 +34225,10 @@ addBlockButton.onclick = function () {
     addBlockButton.classList.remove('enabled');
 
     addBlockToBlockchain(
-      sender.value.toString(),
-      receiver.value.toString(),
+      senderName,
+      senderAddress,
+      receiverName,
+      receiverAddress,
       parseFloat(removeCommas(amount.value.toString()))
     );
   }
@@ -34166,12 +34247,40 @@ undoButton.onclick = function () {
     let receiver = blockchain.blockList[blockNumber - 1].transaction.sender;
     let amount = blockchain.blockList[blockNumber - 1].transaction.amount;
 
-    addBlockToBlockchain(sender, receiver, amount);
+    addBlockToBlockchain(
+      sender,
+      senderAddress,
+      receiver,
+      receiverAddress,
+      amount
+    );
 
     addBlockButton.classList.remove('enabled');
     addBlockButton.classList.add('disabled');
     undoButton.classList.remove('enabled');
     undoButton.classList.add('disabled');
+  }
+};
+
+checkBox.onchange = function () {
+  if (checkBox.checked) {
+    sender.value = senderAddress;
+    receiver.value = receiverAddress;
+  } else {
+    sender.value = senderName;
+    receiver.value = receiverName;
+  }
+
+  if (blockNumber >= 1) {
+    for (let i = 0; i < blockchain.blockList.length; i++) {
+      if (checkBox.checked) {
+        document.getElementById('trx-' + (i + 1).toString()).value =
+          blockchain.blockList[i].transaction.longDescription;
+      } else {
+        document.getElementById('trx-' + (i + 1).toString()).value =
+          blockchain.blockList[i].transaction.description;
+      }
+    }
   }
 };
 

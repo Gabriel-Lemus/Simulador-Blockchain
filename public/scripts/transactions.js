@@ -289,6 +289,7 @@ messageSignatureCopy.onkeyup = function () {
   canVerify = true;
   verifyButton.classList.remove('verify-button-disabled');
   verifyButton.classList.add('verify-button');
+  restoreCard();
 };
 
 verifyButton.onclick = function () {
@@ -311,6 +312,21 @@ verifyButton.onclick = function () {
       'base64'
     );
 
+    let otherData =
+      'Q.' +
+      amount2.value.toString() +
+      ' from ' +
+      senderName +
+      ' to ' +
+      receiverName;
+
+    let otherVerification = key.verify(
+      otherData,
+      messageSignatureCopy.value.toString(),
+      'utf8',
+      'base64'
+    );
+
     if (!checkBox.checked) {
       if (verification && validPublicKey) {
         verificationCard.classList.remove('container-no-match');
@@ -321,9 +337,10 @@ verifyButton.onclick = function () {
       }
     } else {
       if (
-        sender2.value == sender1.value &&
-        receiver2.value == receiver1.value &&
-        validPublicKey
+        (sender2.value == sender1.value &&
+          receiver2.value == receiver1.value &&
+          validPublicKey) &&
+        otherVerification
       ) {
         verificationCard.classList.remove('container-no-match');
         verificationCard.classList.add('container-match');
