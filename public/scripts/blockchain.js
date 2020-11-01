@@ -1,6 +1,10 @@
 let SHA256 = require('crypto-js/sha256');
 let NodeRSA = require('node-rsa');
 
+window.sha256 = function (data) {
+  return SHA256(data).toString();
+};
+
 class Transaction {
   constructor(sender, senderAddress, receiver, receiverAddress, amount) {
     this.sender = sender;

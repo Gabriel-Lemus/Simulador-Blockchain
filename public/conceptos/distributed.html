@@ -85,14 +85,27 @@
       </ul>
     </nav>
     <div class="wrapper">
-      <h1 class="text-title">Página de prueba</h1>
+      <h1 class="text-title">Registro distribuido</h1>
       <div class="big-separator"></div>
-      <div class="under-construction" style="text-align: center">
-        <img
-          src="../images/under-construction.png"
-          alt="Sitio bajo construcción."
-          style="height: 250px"
-        />
+      <div id="blockchain-settings">
+        <div class="separator"></div>
+        <div class="separator"></div>
+        <p class="text" style="margin-left: 65px">Transacción:</p>
+        <div style="height: 3px"></div>
+        <div id="currency">Q.</div>
+        <input class="text" id="amount" />
+        <div id="sender-div">Emisor</div>
+        <input class="text" id="sender" />
+        <div id="receiver-div">➜</div>
+        <input class="text" id="receiver" />
+        <div class="big-separator"></div>
+        <button id="add-trx-button" class="enabled">Agregar Bloque</button>
+        <button id="random-trx-button" class="enabled">Transacción Aleatoria</button>
+        <button id="undo-trx-button" class="disabled">Invertir Transacción</button>
+        <div class="separator" style="height: 23px;"></div>
+        <input type="checkbox" id="show-addresses" name="addresses" value="address-bool" style="margin-left: 410px;">
+        <label for="show-addresses" class="text" id="checkbox-label">Mostrar direcciones</label>
+        <div class="separator"></div>
       </div>
       <div class="big-separator"></div>
       <div class="ending-text">
