@@ -440,3 +440,28 @@
     transform: rotate(360deg);
   }
 }
+
+.enabled {
+  background-color: #4c6faf;
+  font-size: 14px;
+  border: none;
+  color: white;
+  border-radius: 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline;
+  font-size: 16px;
+  outline: none;
+  width: calc(((100% - 125px) / 3.05));
+  height: 35px;
+}
+
+.blockchain {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  height: 600px;
+  width: 1000px;
+  background-color: #bbb;
+  border-radius: 15px;
+}
