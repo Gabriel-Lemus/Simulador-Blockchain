@@ -5,8 +5,14 @@
     <meta http-equiv="X-UA-Compativle" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../images/favicon.ico" />
-    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alata&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap"
+      rel="stylesheet"
+    />
     <title>Cadena de bloques</title>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/hash.css" />
@@ -14,22 +20,68 @@
   <body>
     <nav class="navbar">
       <ul class="navigation-hyperlinks">
-        <li class="navbar-item"><img class="img-blockchain" src="../images/blockchain.png" alt="Blockchain illustration." /></li>
-        <li class="navbar-item"><a href="../index.html" class="navbar-hyperlink"><h1 id="page-title">Simulador de Blockchain</h1></a></li>
+        <li class="navbar-item">
+          <a href="../index.html">
+            <img
+              class="img-blockchain"
+              src="../images/blockchain.png"
+              alt="Blockchain illustration."
+            />
+          </a>
+        </li>
+        <li class="navbar-item">
+          <a href="../index.html" class="navbar-hyperlink"
+            ><h1 id="page-title">Simulador de Blockchain</h1></a
+          >
+        </li>
         <div id="dropdown-menu">
-          <li class="navbar-item"><h1 id="dropdown">Lecciones</h1>
+          <li class="navbar-item">
+            <h1 id="dropdown">Lecciones</h1>
             <ul class="dropdown-list">
-              <li class="dropdown-item"><a href="./hash.html" class="dropdown-hyperlink">1. Hashes y encriptación</a></li>
-              <li class="dropdown-item"><a href="./block.html" class="dropdown-hyperlink">2. Bloques, nonces y minar</a></li>
-              <li class="dropdown-item"><a href="./keys.html" class="dropdown-hyperlink">3. Llaves criptográficas</a></li>
-              <li class="dropdown-item"><a href="./signatures.html" class="dropdown-hyperlink">4. Firma digital</a></li>
-              <li class="dropdown-item"><a href="./transactions.html" class="dropdown-hyperlink">5. Transacciones</a></li>
-              <li class="dropdown-item"><a href="javascript:void(0)" class="dropdown-hyperlink">6. Cadena de bloques</a></li>
-              <li class="dropdown-item"><a href="./distributed.html" class="dropdown-hyperlink">7. Registro distribuido</a></li>
-              <li class="dropdown-item"><a href="./tokens.html" class="dropdown-hyperlink">8. Tokens</a></li>
+              <li class="dropdown-item">
+                <a href="./hash.html" class="dropdown-hyperlink"
+                  >1. Hashes y encriptación</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./block.html" class="dropdown-hyperlink"
+                  >2. Bloques, nonces y minar</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./keys.html" class="dropdown-hyperlink"
+                  >3. Llaves criptográficas</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./signatures.html" class="dropdown-hyperlink"
+                  >4. Firma digital</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./transactions.html" class="dropdown-hyperlink"
+                  >5. Transacciones</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="javascript:void(0)" class="dropdown-hyperlink"
+                  >6. Cadena de bloques</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a href="./distributed.html" class="dropdown-hyperlink"
+                  >7. Registro distribuido</a
+                >
+              </li>
             </ul>
           </li>
-          <li class="navbar-item"><img class="img-dropdown-arrow" src="../images/dropdown-menu-arrowpng.png" alt="Dropdown arrow." /></li>
+          <li class="navbar-item">
+            <img
+              class="img-dropdown-arrow"
+              src="../images/dropdown-menu-arrowpng.png"
+              alt="Dropdown arrow."
+            />
+          </li>
         </div>
       </ul>
     </nav>
@@ -39,8 +91,8 @@
       <div id="blockchain-settings">
         <div class="separator"></div>
         <div class="separator"></div>
-        <p class="text" style="margin-left: 65px;">Transacción:</p>
-        <div style="height: 3px;"></div>
+        <p class="text" style="margin-left: 65px">Transacción:</p>
+        <div style="height: 3px"></div>
         <div id="currency">Q.</div>
         <input class="text" id="amount" />
         <div id="sender-div">Emisor</div>
@@ -49,8 +101,12 @@
         <input class="text" id="receiver" />
         <div class="big-separator"></div>
         <button id="add-trx-button" class="enabled">Agregar Bloque</button>
-        <button id="random-trx-button" class="enabled">Transacción Aleatoria</button>
-        <button id="undo-trx-button" class="disabled">Invertir Transacción</button>
+        <button id="random-trx-button" class="enabled">
+          Transacción Aleatoria
+        </button>
+        <button id="undo-trx-button" class="disabled">
+          Invertir Transacción
+        </button>
       </div>
       <div class="separator"></div>
       <div id="blockchain"></div>
