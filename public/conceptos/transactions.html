@@ -192,11 +192,7 @@
       <div class="medium-separator"></div>
       <h1 class="text-title">Firma</h1>
       <div class="medium-separator"></div>
-      <div
-        id="signature-card"
-        class="signature-container-neutral-1"
-        style="height: 350px"
-      >
+      <div id="signature-card" class="signature-container-neutral-1">
         <p class="text" style="text-align: left; margin-left: 65px">
           Transacción:
         </p>
@@ -207,18 +203,19 @@
         <input class="text" id="sender-1" />
         <div id="receiver-div">➜</div>
         <input class="text" id="receiver-1" />
-        <div class="big-separator"></div>
+        <button id="assign-rand-values">Aleatorizar</button>
+        <div class="separator"></div>
         <p class="text" style="text-align: left; margin-left: 65px">
           Llave Privada:
         </p>
-        <input class="text" id="private-key-space" />
+        <input class="text" id="private-key-space" readonly />
         <div class="medium-separator"></div>
         <button id="sign-button" class="sign-button">Firmar</button>
         <div class="medium-separator"></div>
         <p class="text" style="text-align: left; margin-left: 65px">
           Firma de la transacción:
         </p>
-        <input type="text" id="message-signature-original" />
+        <input type="text" id="message-signature-original" readonly />
         <div class="medium-separator"></div>
         <p class="text" id="is-mined"></p>
       </div>
