@@ -1,3 +1,4 @@
+let SHA256 = require('crypto-js/sha256');
 let NodeRSA = require('node-rsa');
 
 let verificationCard = document.getElementById('verification-card');
@@ -16,11 +17,17 @@ let publicKey = document.getElementById('public-key-space');
 let signButton = document.getElementById('sign-button');
 let verifyButton = document.getElementById('verify-button');
 let randomButton = document.getElementById('assign-rand-values');
+let checkBox = document.getElementById('show-addresses');
 
 let key;
+let otherKey;
 let publicKeyValue;
 let privateKey_;
 let privateKeyValue;
+let senderName;
+let receiverName;
+let senderAddress;
+let receiverAddress;
 let previousSignature;
 let newSignature;
 let canVerify = false;
@@ -81,6 +88,14 @@ let names = [
 ];
 
 function assignRandomValues() {
+  otherKey = new NodeRSA({ b: 512 });
+  senderAddress = SHA256(
+    otherKey.exportKey('private').toString().slice(32, 121)
+  ).toString();
+  receiverAddress = SHA256(
+    otherKey.exportKey('public').toString().slice(27, 79)
+  ).toString();
+
   let firstNumber = Math.floor(Math.random() * names.length);
   let secondNumber = Math.floor(Math.random() * names.length);
 
@@ -88,9 +103,12 @@ function assignRandomValues() {
     secondNumber = Math.floor(Math.random() * names.length);
   }
 
-  sender1.value = names[firstNumber];
+  senderName = names[firstNumber];
+  receiverName = names[secondNumber];
+
+  sender1.value = senderName;
   sender2.value = sender1.value;
-  receiver1.value = names[secondNumber];
+  receiver1.value = receiverName;
   receiver2.value = receiver1.value;
   amount1.value = (
     Math.floor(Math.random() * (1000 * 100 - 1 * 100) + 1 * 100) /
@@ -102,6 +120,11 @@ function assignRandomValues() {
 setKeys();
 assignRandomValues();
 changeData();
+
+function restoreCard() {
+  verificationCard.classList.remove('container-match');
+  verificationCard.classList.remove('container-no-match');
+}
 
 function getKeyPair() {
   key = new NodeRSA({ b: 512 });
@@ -133,12 +156,30 @@ function changeData() {
     receiver1.value.toString();
 }
 
+checkBox.onchange = function () {
+  if (checkBox.checked) {
+    sender1.value = senderAddress;
+    sender2.value = senderAddress;
+    receiver1.value = receiverAddress;
+    receiver2.value = receiverAddress;
+  } else {
+    sender1.value = senderName;
+    sender2.value = senderName;
+    receiver1.value = receiverName;
+    receiver2.value = receiverName;
+  }
+};
+
 randomButton.onclick = function () {
   assignRandomValues();
   changeData();
 
   signButton.classList.remove('sign-button-disabled');
   signButton.classList.add('sign-button-enabled');
+
+  if (checkBox.checked) {
+    checkBox.checked = false;
+  }
 };
 
 signButton.onclick = function () {
@@ -213,18 +254,21 @@ amount2.onkeyup = function () {
   canVerify = true;
   verifyButton.classList.remove('verify-button-disabled');
   verifyButton.classList.add('verify-button');
+  restoreCard();
 };
 
 sender2.onkeyup = function () {
   canVerify = true;
   verifyButton.classList.remove('verify-button-disabled');
   verifyButton.classList.add('verify-button');
+  restoreCard();
 };
 
 receiver2.onkeyup = function () {
   canVerify = true;
   verifyButton.classList.remove('verify-button-disabled');
   verifyButton.classList.add('verify-button');
+  restoreCard();
 };
 
 publicKey.onkeyup = function () {
@@ -237,6 +281,8 @@ publicKey.onkeyup = function () {
   } else {
     validPublicKey = false;
   }
+
+  restoreCard();
 };
 
 messageSignatureCopy.onkeyup = function () {
@@ -265,12 +311,26 @@ verifyButton.onclick = function () {
       'base64'
     );
 
-    if (verification && validPublicKey) {
-      verificationCard.classList.remove('container-no-match');
-      verificationCard.classList.add('container-match');
+    if (!checkBox.checked) {
+      if (verification && validPublicKey) {
+        verificationCard.classList.remove('container-no-match');
+        verificationCard.classList.add('container-match');
+      } else {
+        verificationCard.classList.remove('container-match');
+        verificationCard.classList.add('container-no-match');
+      }
     } else {
-      verificationCard.classList.remove('container-match');
-      verificationCard.classList.add('container-no-match');
+      if (
+        sender2.value == sender1.value &&
+        receiver2.value == receiver1.value &&
+        validPublicKey
+      ) {
+        verificationCard.classList.remove('container-no-match');
+        verificationCard.classList.add('container-match');
+      } else {
+        verificationCard.classList.remove('container-match');
+        verificationCard.classList.add('container-no-match');
+      }
     }
 
     canVerify = false;
