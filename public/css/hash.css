@@ -107,7 +107,7 @@
 .signature-container-neutral-1,
 .signature-container-neutral-2 {
   width: 850px;
-  height: 450px;
+  height: 400px;
   text-align: center;
   padding: 50px;
   background-color: #bbb;
@@ -149,7 +149,8 @@
 }
 
 .sign-button,
-.verify-button {
+.verify-button,
+#assign-rand-values {
   background-color: #4c6faf;
   font-size: 14px;
   border: none;
@@ -162,6 +163,14 @@
   outline: none;
   width: calc(100% - 125px);
   height: 35px;
+}
+
+#assign-rand-values {
+  margin-top: 25px;
+}
+
+#assign-rand-values:hover {
+  cursor: pointer;
 }
 
 .sign-button:hover,
