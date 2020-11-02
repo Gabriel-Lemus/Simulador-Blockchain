@@ -89,105 +89,64 @@
       <h1 class="text-title">Transacciones</h1>
       <div class="separator"></div>
       <p class="text">
-        En la vida diaria, es común hacer uso de las firmas escritas para ligar
-        un acuerdo legal, ya que es difícil falcificar las firmas de este tipo.
-        De forma similar, una forma digital es una técnica criptográfica que
-        liga una persona a un conjunto de datos; por ejemplo, podría validar que
-        un mensaje fue creado por un individuo determinado y que el mensaje no
-        fue alterado en su trayecto.
+        Una transacción, en el ámbito de las criptomonedas, es una transferencia
+        de valor entre dos carteras o billeteras de un proveedor de
+        criptomonedas que se incluye en el Blockchain. Las carteras de este tipo
+        resguardan un dato secreto llamada llave privada; o bien, el valor que se
+        utilizar para firmar las transacciones y acceder a la cartera, como se
+        mencionó en la sección anterior. Esta llave privada provee una prueba
+        matemática de que el valor provienen del individuo que dice ser el
+        propietario de la cartera.
       </p>
       <div class="separator"></div>
       <p class="text">
-        Dentro de las transacciones financieras, acuerdos legales y otros usos,
-        como en Blockchain, las firmas digitales son empleadas para implementar
-        firmas electrónicas. Nótese que no todas las firmas electrónicas
-        utilizan firmas digitales.
+        Al aplicar el algoritmo RSA se obtiene un valor conocido como firma
+        digital, como el que se mencionó anteriormente. Dicha firma establece
+        que un individuo emisor le envía una cantidad determinada de
+        criptomonedas a un usuario receptor y evita que la transacción sea
+        alterada por un tercer individuo, una vez que haya sido emitido. Cabe
+        mencionar que todas las transacciones se transmiten a la red del
+        Blockchain y generalmente comienzan a confirmarse (minarse para obtener
+        el <em>nonce</em> correspondiente) dentro de los 10 - 20 minutos después
+        de haberse llevado a cabo la transacción.
       </p>
       <div class="medium-separator"></div>
       <div class="medium-separator"></div>
-      <h2 class="subtitle">
-        El siguiente proceso describe cómo funciona una firma digital:
-      </h2>
-      <div class="separator"></div>
-      <div class="items-list">
-        <ol>
-          <li>
-            <p class="text">
-              <b>Generar un hash a partir de los datos a enviar.</b>
-            </p>
-          </li>
-          <div style="height: 5px"></div>
-          <p class="text">
-            El emisor (individuo que realizará la firma) emite la información
-            que se enviará a una función hash para que esta quede encriptada.
-            Cabe recordar que el valor de este hash es único de dicho mensaje.
-          </p>
-          <div class="medium-separator"></div>
-          <li>
-            <p class="text">
-              <b>Generar la firma digital.</b>
-            </p>
-          </li>
-          <div style="height: 5px"></div>
-          <p class="text">
-            El hash producido por el mensaje y la llave privada del emisor son
-            emitidos a un algoritmo de firmado para producir la firma digital de
-            acuerdo con los datos provistos.
-          </p>
-          <div class="medium-separator"></div>
-          <li>
-            <p class="text">
-              <b>Enviar el mensaje al receptor.</b>
-            </p>
-          </li>
-          <div style="height: 5px"></div>
-          <p class="text">
-            El emisor le envía el mensaje deseado al recpetor junto con la firma
-            digital.
-          </p>
-          <div class="medium-separator"></div>
-          <li>
-            <p class="text">
-              <b>El receptor verifica el hash generado por el emisor.</b>
-            </p>
-          </li>
-          <div style="height: 5px"></div>
-          <p class="text">
-            Luego de recibir el mensaje y la firma, el receptor emite la llave
-            pública y la firma digital del emisor al algoritmo empleado. Esto
-            generará como resultado un hash.
-          </p>
-          <div class="medium-separator"></div>
-          <li>
-            <p class="text">
-              <b
-                >Regenerar el hash a partir de los datos y de la muestra enviada
-                por el emisor.</b
-              >
-            </p>
-          </li>
-          <div style="height: 5px"></div>
-          <p class="text">
-            Finalmente, el receptor emplea la misma función hash y genera el
-            valor hash a partir de los datos originales. Si este hash concuerda
-            con el hash enviado por el emisor, el receptor tendrá la certeza de
-            que la firma digital es válida y que ni el mensaje o la firma fue
-            alterada.
-          </p>
-          <div class="medium-separator"></div>
-        </ol>
+      <div>
+        <img
+          src="../images/transaction.png"
+          alt="Encriptación simétrica."
+          style="display: block; margin: 0 auto; height: 250px"
+        />
+        <p class="text" style="margin-top: 15px; text-align: center">
+          <em
+            >Una transacción es una transferencia de valor de una cartera de
+            criptomoneda a otra. Para que una transacción sea validada y
+            posteriormente, registrada en el Blockchain, es necesario que un
+            minero encuentre el <em>nonce</em> correspondiente para que el hash
+            del bloque en el que se encuentre la transacción cumpla con la regla
+            establecida.
+          </em>
+        </p>
+        <div class="separator"></div>
       </div>
       <div class="medium-separator"></div>
-      <h1 class="text-title">Simulación de firma digital</h1>
+      <div class="medium-separator"></div>
+      <h1 class="text-title">Simulación de una transacción</h1>
       <div class="separator"></div>
       <p class="text">
         <b>Instrucciones: </b>A continuación, se le presentan dos campos: firma
         y verificación. El campo de firma (emisor) le proveerá una llave privada
-        y permitirá crear un mensaje, de manera que al generar la firma digital,
+        que le permitirá establecer una transacción monetaria (en quetzales).
+        Para ello, puede establecer el nombre del emisor y del receptor, así
+        como la cantidad a transferir. Alternativamente, puede chequear la
+        opción de "Mostrar direcciones" para visualizar las direcciones de los
+        individuos correspondientes. De manera que al generar la firma digital,
         esta y el mensaje le sea enviado al receptor (campo de verificación).
         Una vez que sea verificado el mensaje, si este no ha sido modificado, el
         campo obtendrá un color verde para simbolizar que el proceso de
-        verificación fue un éxito.
+        verificación fue un éxito. De lo contrario, se tornará rojo, indicando
+        que la transacción fue alterada.
       </p>
       <div class="medium-separator"></div>
       <h1 class="text-title">Firma</h1>
@@ -205,8 +164,15 @@
         <input class="text" id="receiver-1" />
         <button id="assign-rand-values">Aleatorizar</button>
         <div class="separator"></div>
-        <input type="checkbox" id="show-addresses" name="addresses" value="address-bool">
-        <label for="show-addresses" class="text" id="checkbox-label">Mostrar direcciones</label>
+        <input
+          type="checkbox"
+          id="show-addresses"
+          name="addresses"
+          value="address-bool"
+        />
+        <label for="show-addresses" class="text" id="checkbox-label"
+          >Mostrar direcciones</label
+        >
         <div class="separator"></div>
         <p class="text" style="text-align: left; margin-left: 65px">
           Llave Privada:

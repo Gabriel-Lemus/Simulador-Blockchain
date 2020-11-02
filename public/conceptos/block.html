@@ -112,15 +112,15 @@
       <div class="separator"></div>
       <p class="text">
         La labor que realizan los mineros dentro de un blockchain se puede
-        pensar como una auditoría. En síntesis, ellos verifican las
+        pensar como una auditoría. En otras palabras, ellos verifican las
         transacciones del Blockchain que han tomado lugar. De esta manera, se
-        mantiene un nivel de honestidad entre los usuarios, y se previenen
-        fraudes.
+        mantiene un nivel de honestidad entre los usuarios, se verifica la
+        validez de la transacciones y se previenen fraudes.
       </p>
       <div class="separator"></div>
       <div class="separator"></div>
       <p class="text">
-        ¿Pero que hacen en sí los mineros? En esencia, es buscar un número
+        ¿Pero qué hacen en sí los mineros? En esencia, es buscar un número
         conocido como Nonce.
       </p>
       <div class="separator"></div>
@@ -132,9 +132,16 @@
         número usado solo una vez). Es un número agregado a un bloque que ya ha
         pasado por la función hash, de manera que cumpla ciertas restricciones o
         reglas. Este número es el que buscan los mineros y por lo cual reciben
-        una compensación. Una de las reglas más comunes es que el nonce del
-        bloque es que el hash generado por el bloque empiece por una cantidad
-        determinada de ceros.
+        una compensación. Una de las reglas más comunes es que el hash generado
+        por el bloque empiece por una cantidad determinada de ceros.
+      </p>
+      <div class="separator"></div>
+      <p class="text">
+        A continuación puede observar un GIF donde se muestra un ejemplo del
+        proceso de minado. En él se está buscando el primer número en orden
+        ascendente, que al ser agregado a la frase "¡Hola mundo!" y ser pasado
+        por la función SHA256 produzca un Hash cuyos primeros cuatro dígitos
+        sean ceros.
       </p>
       <div class="medium-separator"></div>
       <div class="medium-separator"></div>
@@ -160,14 +167,19 @@
       <div class="separator"></div>
       <p class="text">
         <b>Instrucciones: </b>A continuación, se le presenta un ejemplo de
-        bloque de un Blockchain. Por propósitos de prueba, se dirá que pertenece
-        al Blockchain de una criptomoneda por lo que los datos serán
+        bloque de un Blockchain. Por propósitos de prueba, se estableció que
+        pertenezca al Blockchain de una criptomoneda por lo que los datos serán
         transacciones financieras. Usted podrá cambiar el número del bloque, así
         como determinar el contenido de los datos (no necesariamente debe ser
-        una transacción, pero si lo deja en blanco, automáticamente se colocará
-        una transacción aleatoria). Posteriormente, presione el botón "minar"
-        para encontrar el nonce que hará que el hash del bloque concuerde con la
-        regla definida.
+        una transacción, por lo que puede colocar un mensaje cualquiera).
+      </p>
+      <div class="separator"></div>
+      <p class="text">
+        Adicionalmente, puede cambiar la cantidad de ceros que obedezcan la
+        regla. Recuerde que la regla establece la cantidad de ceros con los que
+        deberá contar el hash como caracteres de inicio. Posteriormente,
+        presione el botón "Minar Bloque" para encontrar el nonce que hará que el
+        hash del bloque concuerde con la regla definida.
       </p>
       <div class="medium-separator"></div>
       <div id="hash-container-mined">

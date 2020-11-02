@@ -94,7 +94,7 @@
         Como se mencionó en la sección referente a <em>hashes</em>, la
         encriptación es un método para convertir información en un código
         secreto que oculte el significado verdadero de dicha información. Dos de
-        los métodos más comúnes de encriptación es la encriptación
+        los métodos más comunes de encriptación es la encriptación
         <em>simétrica</em> y <em>asimétrica</em>.
       </p>
       <div class="medium-separator"></div>
@@ -102,10 +102,10 @@
       <div class="separator"></div>
       <p class="text">
         Tanto en la encriptación simétrica y asimétrica se emplean códigos
-        especiales denominados <em>llaves</em> para encriptar y descencriptar la
+        especiales denominados <em>llaves</em> para encriptar y desencriptar la
         información. La encriptación simétrica es la forma de encriptación más
         sencilla que tan solo emplea una llave, llamada <em>llave pública</em>,
-        para encriptar y descencriptar la información. Dicha llave puede ser una
+        para encriptar y desencriptar la información. Dicha llave puede ser una
         combinación de números, letras o ambos. Esta llave es combinada con un
         mensaje en formato de texto para modificar su contenido en una forma
         particular y difícil de discernir.
@@ -115,7 +115,7 @@
         De esta manera, cuando una persona desee enviarle un mensaje encriptado
         a otra persona, tanto el emisor como el receptor deben de conocer la
         llave pública. Así, el emisor encripta el mensaje con la llave y envía
-        dicho mensaje; y el receptor realiza el proceso de descencriptado con la
+        dicho mensaje; y el receptor realiza el proceso de desencriptado con la
         misma llave para obtener el mensaje. Algunos de los algoritmos de
         encriptación simétrica más populares son AES-128, AES-192 y AES-256.
       </p>
@@ -130,16 +130,18 @@
           <em
             >En la encriptación simétrica, el emisor emplea la llave pública
             (clave secreta) para encripta un mensaje y el receptor emplea la
-            misma llave para descencriptarlo.</em
+            misma llave para desencriptarlo.</em
           >
         </p>
+        <div class="separator"></div>
       </div>
       <div class="separator"></div>
       <p class="text">
         La ventaja principal que ofrece la encriptación simétrica es que todos
-        los involucrados únicamenten necesitan disponer de la misma llave para
-        encriptar y descencriptar los mensajes.
+        los involucrados únicamente necesitan disponer de la misma llave para
+        encriptar y desencriptar los mensajes.
       </p>
+      <div class="medium-separator"></div>
       <div class="medium-separator"></div>
       <h2 class="subtitle">Encriptación asimétrica</h2>
       <div class="separator"></div>
@@ -148,11 +150,10 @@
         los mensajes enviados: una <em>pública</em> y otra <em>privada</em>. En
         este proceso, cada individuo genera una llave pública con la cual los
         demás pueden encriptarle mensajes dirigidos a sí y emplean una llave
-        privada para descencriptarlos. De esta manera, se hace necesario que dos
+        privada para desencriptarlos. De esta manera, se hace necesario que dos
         individuos que deseen hacer uso de la encriptación asimétrica para
-        comunicarse, intercambien llaves públicas para el proceso de
-        encriptación y empleen sus llaves privadas para descencriptar los
-        mensajes.
+        comunicarse intercambien llaves públicas para el proceso de encriptación
+        y empleen sus llaves privadas para desencriptar los mensajes.
       </p>
       <div class="separator"></div>
       <p class="text">
@@ -160,15 +161,14 @@
         fácilmente los mensajes, al no contar con las llaves privadas, aún si
         interceptan los mensajes. Cabe mencionar que también es posible hacer
         uso de las llaves privadas para encriptar mensajes y luego emplear las
-        públicas para descencriptarlos. De tal forma, no es necesario
-        preocuparse por la seguridad de la llave pública, ya que se encuentran
-        disponibles a todos los usuarios; por otro lado, es necesario resguardar
-        las llaves privadas, ya que sin ellas no se podría llevar a cabo el
-        proceso.
+        públicas para desencriptarlos. De tal forma, no es necesario preocuparse
+        por la seguridad de la llave pública, ya que se encuentran disponibles a
+        todos los usuarios; por otro lado, es necesario resguardar las llaves
+        privadas, ya que sin ellas no se podría llevar a cabo el proceso.
       </p>
       <div class="separator"></div>
       <p class="text">
-        En la actualidad, la encriptación asimétrica es uno de las formas de
+        En la actualidad, la encriptación asimétrica es una de las formas de
         encriptación más populares utilizadas en los canales de comunicación,
         así como en Blockchain. Algunos de los algoritmos más populares para
         ello son: RSA, DSA, Criptografía de Curva Elíptica y PKCS.
@@ -185,10 +185,63 @@
             >En la encriptación asimétrica, se emplean dos llaves: una privada
             (única para cada usuario) y otra pública (la cual es accesible por
             todos). Una de ellas es empleada para encriptar el mensaje y la otra
-            es utilizada para descentcriptarlo</em
+            es utilizada para desencriptarlo</em
           >
         </p>
       </div>
+      <div class="medium-separator"></div>
+      <div class="medium-separator"></div>
+      <h2 class="subtitle">Algoritmo RSA</h2>
+      <div class="separator"></div>
+      <p class="text">
+        Existen distintos tipos de algoritmos de encriptación utilizados para
+        generar llaves públicas utilizadas en la encriptación simétrica; o bien,
+        para generar pares de llaves pública y privada en la encriptación
+        asimétrica. El algoritmo de encriptación utilizado para la encriptación
+        asimétrica en el proceso de transacciones en distintas criptomonedas, y
+        el cual será utilizado en esta página, es el RSA (<em
+          >Rivest - Shamir - Adleman</em
+        >).
+      </p>
+      <div class="separator"></div>
+      <p class="text">
+        El algoritmo RSA es un criptosistema que se emplear para transmitir
+        datos de forma segura. Las criptomonedas utilizan el algoritmo RSA u
+        otro similar para la creación y cifrado de las billeteras de Blockchain
+        (en este contexto una billetera es similar a una cuenta bancaria). Al
+        crear una billetera de criptomoneda se genera una dirección
+        (<em>llave</em>) pública y privada:
+      </p>
+      <div class="medium-separator"></div>
+      <div class="items-list">
+        <ul>
+          <li>
+            <p class="text">
+              La <em><b>dirección pública</b></em> se utiliza para recibir
+              criptomonedas y consultar el saldo en el Blockchain.
+            </p>
+          </li>
+          <li>
+            <p class="text">
+              Por otro lado, la <em><b>llave privada</b></em> se emplear en
+              correlación con la llave pública para acceder y utilizar la
+              criptomoneda. Es necesario tomar en cuenta que es una buena
+              práctica realizar una copia de seguridad de la llave privada, ya
+              que, si se llegara a extraviar, le sería imposible acceder a su
+              billetera.
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class="medium-separator"></div>
+      <p class="text">
+        Cabe agregar que cada algoritmo de encriptación y generador de llaves
+        públicas y privadas utiliza encabezados para distinguir las llaves de su
+        tipo. Esto quiere decir que todas las llaves RSA comienzan con la misma
+        secuencia de caracteres. Adicionalmente, las llaves privadas tienden a
+        contar con una mayor cantidad de caracteres que las públicas, aunque
+        esto varía de un algoritmo de encriptación a otro.
+      </p>
       <div class="big-separator"></div>
       <h1 class="text-title">Generador de llaves privadas y públicas</h1>
       <div class="separator"></div>
@@ -197,6 +250,12 @@
         una privada y una pública generadas a partir del algoritmo RSA. Puede
         presionar el botón para generar aleatoriamente un par de llaves
         correspondientes de este tipo.
+      </p>
+      <div class="separator"></div>
+      <p class="text">
+        Preste atención a que cuando presiona el botón de "Aleatorizar", el
+        encabezado de las llaves permanece, mientras que el resto de la llave
+        cambia de una iteración a otra.
       </p>
       <div class="medium-separator"></div>
       <div id="hash-container" style="height: 215px">
