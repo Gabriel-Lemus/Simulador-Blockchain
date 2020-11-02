@@ -88,30 +88,111 @@
     <div class="wrapper">
       <h1 class="text-title">Cadena de Bloques</h1>
       <div class="separator"></div>
-      <!-- <p class="text">
-        Una transacción, en el ámbito de las criptomonedas, es una transferencia
-        de valor entre dos carteras o billeteras de un proveedor de
-        criptomonedas que se incluye en el Blockchain. Las carteras de este tipo
-        resguardan un dato secreto llamada llave privada; o bien, el valor que se
-        utilizar para firmar las transacciones y acceder a la cartera, como se
-        mencionó en la sección anterior. Esta llave privada provee una prueba
-        matemática de que el valor provienen del individuo que dice ser el
-        propietario de la cartera.
+      <p class="text">
+        Como se menconó en páginas anteriores, los bloques son archivos en el
+        que los datos pertenecientes a la red se registran de forma permanente.
+        Un bloque registra algunas o todas las transacciones de criptomonedas (o
+        de cualquier otro registro, según el uso que se le esté dando al
+        Blockchain) más recientes que aún no han ingresado a ningún bloque
+        anterior. Por tanto lo, un bloque es como una página de un libro mayor.
+        Cada vez que un bloque se valida un bloque, se da paso al siguiente
+        bloque de la cadena de bloques. En síntesis, es posible pensar de un
+        bloque como un almacén permanente de registros que, una vez escrito, no
+        es posible de modificar ni eliminar.
+      </p>
+      <div class="separator"></div>
+      <div class="separator"></div>
+      <p class="text">Conceptos clave:</p>
+      <div class="items/list">
+        <ul>
+          <li style="margin-left: 25px">
+            <p class="text">
+              Se puede pensar en un bloque como un eslabón en una cadena.
+            </p>
+          </li>
+          <li style="margin-left: 25px">
+            <p class="text">
+              Posee parte o todos los registros de las transacciones que lo
+              precedieron.
+            </p>
+          </li>
+          <li style="margin-left: 25px">
+            <p class="text">
+              La red blockchain se compone de millones de bloques que se
+              encuentran en un estado de flujo constante.
+            </p>
+          </li>
+          <li style="margin-left: 25px">
+            <p class="text">
+              Un bloque es prácticamente imposible de falsificar o invalidar una
+              vez haya sido comprobado.
+            </p>
+          </li>
+          <li style="margin-left: 25px">
+            <p class="text">
+              Los mineros de bloques en Blockchain resuelven ecuaciones
+              matemáticas (<em>proof-of-work</em> - encontrar el
+              <em>nonce</em> correspondiente) complejas que toman entre 10 y 20
+              minutos pero que pueden ser verificadas sencillamente y en una
+              menor cantidad de tiempo. Adicionalmente, en el ámbito de las
+              criptomonedas, se les recompensa monetariamente por su esfuerzo en
+              encontrar las soluciones.
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class="separator"></div>
+      <div class="separator"></div>
+      <p class="text">
+        La red del Blockchain es testigo de una gran actividad de transacciones.
+        Mantener un registro de estas transacciones ayuda a los usuarios a
+        realizar un seguimiento de lo que se pagó y por quién. Las transacciones
+        ejecutadas durante un período de tiempo determinado se registran en un
+        archivo llamado bloque, que es la base de la red blockchain.
       </p>
       <div class="separator"></div>
       <p class="text">
-        Al aplicar el algoritmo RSA se obtiene un valor conocido como firma
-        digital, como el que se mencionó anteriormente. Dicha firma establece
-        que un individuo emisor le envía una cantidad determinada de
-        criptomonedas a un usuario receptor y evita que la transacción sea
-        alterada por un tercer individuo, una vez que haya sido emitido. Cabe
-        mencionar que todas las transacciones se transmiten a la red del
-        Blockchain y generalmente comienzan a confirmarse (minarse para obtener
-        el <em>nonce</em> correspondiente) dentro de los 10 - 20 minutos después
-        de haberse llevado a cabo la transacción.
+        Un bloque puede ser considerado como el "presente" y contiene
+        información sobre su pasado y futuro. Cada vez que se completa un
+        bloque, se convierte en parte del pasado y da paso a un nuevo bloque en
+        la cadena de bloques. El bloque completado es un registro permanente de
+        transacciones en el pasado y las nuevas transacciones se registran en el
+        actual.
+      </p>
+      <div class="separator"></div>
+      <p class="text">
+        De esta manera, todo el sistema funciona en un ciclo y los datos se
+        almacenan permanentemente. Cada bloque comprende registros de algunas o
+        todas las transacciones recientes y una referencia al bloque que lo
+        precedió, lo que, junto con el sistema de verificación de igual a igual
+        de Bitcoin, hace que sea prácticamente imposible que un usuario manipule
+        los datos de transacciones previamente registrados.
+      </p>
+      <div class="separator"></div>
+      <h2 class="subtitle">Bloque génesis</h2>
+      <div class="separator"></div>
+      <p class="text">
+        Cada bloque contiene información pertinente al uso que se le está dando
+        al Blockchain. Entre esta información está la hora, fecha y la cantidad
+        transaccionada, participantes en las transacciones. e información que lo
+        distingue de cualquier otro bloque presente en la cadena. De manera
+        similar a como cada persona tiene huellas dactilares únicas, cada bloque
+        almacena su hash y el hash del bloque anterior, el cual le permite
+        distinguirlo del resto de bloques en la cadena. En el caso del primer
+        bloque este contiene un grupo de ceros en el sitio del hash anterior.
+      </p>
+      <div class="big-separator"></div>
+      <h1 class="text-title">Minero de Bloquess Interactivo</h1>
+      <div class="separator"></div>
+      <p class="text">
+        <b>Instrucciones: </b>A continuación, podrá establecer una transacción
+        que desee y agregar el bloque al blockchain. Posteriormente, podrá minar
+        el bloque y agregar otro. Puede visualizar los nombres de los
+        participantes o bien, sus direcciones. Nótese que no puede eliminar
+        bloques, pero sí puede revertir las transacciones.
       </p>
       <div class="medium-separator"></div>
-      <div class="medium-separator"></div> -->
+      <div class="medium-separator"></div>
       <div id="blockchain-settings">
         <div class="separator"></div>
         <div class="separator"></div>
@@ -131,9 +212,17 @@
         <button id="undo-trx-button" class="disabled">
           Revertir Transacción
         </button>
-        <div class="separator" style="height: 23px;"></div>
-        <input type="checkbox" id="show-addresses" name="addresses" value="address-bool" style="margin-left: 410px;">
-        <label for="show-addresses" class="text" id="checkbox-label">Mostrar direcciones</label>
+        <div class="separator" style="height: 23px"></div>
+        <input
+          type="checkbox"
+          id="show-addresses"
+          name="addresses"
+          value="address-bool"
+          style="margin-left: 410px"
+        />
+        <label for="show-addresses" class="text" id="checkbox-label"
+          >Mostrar direcciones</label
+        >
         <div class="separator"></div>
       </div>
       <div class="separator"></div>

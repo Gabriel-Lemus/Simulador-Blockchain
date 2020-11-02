@@ -88,30 +88,15 @@
     <div class="wrapper">
       <h1 class="text-title">Registro distribuido</h1>
       <div class="separator"></div>
-      <!-- <p class="text">
-        Una transacción, en el ámbito de las criptomonedas, es una transferencia
-        de valor entre dos carteras o billeteras de un proveedor de
-        criptomonedas que se incluye en el Blockchain. Las carteras de este tipo
-        resguardan un dato secreto llamada llave privada; o bien, el valor que se
-        utilizar para firmar las transacciones y acceder a la cartera, como se
-        mencionó en la sección anterior. Esta llave privada provee una prueba
-        matemática de que el valor provienen del individuo que dice ser el
-        propietario de la cartera.
+      <p class="text">
+        Es interesante observar como se elimina la necesidad de contar con
+        intermediarios al emplear blockchain, ya que el registro de bloque es
+        supervisado por los peers. Esta validación no le es confiada a un solo
+        peeer, por lo al validar un bloque, un peer realizará la prueba de
+        trabajo, la cual le tomará alrededor de 10 o 20 minutos en realizar,
+        pero que los demás podrán revisar con relativa sencillez y rápidamente.
       </p>
       <div class="separator"></div>
-      <p class="text">
-        Al aplicar el algoritmo RSA se obtiene un valor conocido como firma
-        digital, como el que se mencionó anteriormente. Dicha firma establece
-        que un individuo emisor le envía una cantidad determinada de
-        criptomonedas a un usuario receptor y evita que la transacción sea
-        alterada por un tercer individuo, una vez que haya sido emitido. Cabe
-        mencionar que todas las transacciones se transmiten a la red del
-        Blockchain y generalmente comienzan a confirmarse (minarse para obtener
-        el <em>nonce</em> correspondiente) dentro de los 10 - 20 minutos después
-        de haberse llevado a cabo la transacción.
-      </p> -->
-      <div class="medium-separator"></div>
-      <div class="medium-separator"></div>
       <div id="blockchain-settings" style="height: 255px">
         <div class="separator"></div>
         <div class="separator"></div>
@@ -156,13 +141,19 @@
       </div>
       <div class="separator"></div>
       <div id="peers">
-        <p class="text" style="margin: 15px auto 0 auto" id="peer-desc-1">Peer #1</p>
+        <p class="text" style="margin: 15px auto 0 auto" id="peer-desc-1">
+          Peer #1
+        </p>
         <div class="blockchain" id="peer-1"></div>
         <div class="big-separator"></div>
-        <p class="text" style="margin: 15px auto 0 auto" id="peer-desc-2">Peer #2</p>
+        <p class="text" style="margin: 15px auto 0 auto" id="peer-desc-2">
+          Peer #2
+        </p>
         <div class="blockchain" id="peer-2"></div>
         <div class="big-separator"></div>
-        <p class="text" style="margin: 15px auto 0 auto" id="peer-desc-3">Peer #3</p>
+        <p class="text" style="margin: 15px auto 0 auto" id="peer-desc-3">
+          Peer #3
+        </p>
         <div class="blockchain" id="peer-3"></div>
       </div>
       <div class="big-separator"></div>
